@@ -1,0 +1,2 @@
+C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\UnitAnroidPrinterApp.dll
+C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\Newtonsoft.Json.dll
