@@ -1,23 +1,6 @@
 ﻿<Properties StartupItem="UnitAnroidPrinterApp\UnitAnroidPrinterApp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="UnitAnroidPrinterApp" expanded="True">
-            <Node name="UnitAnroidPrinterApp" expanded="True">
-              <Node name="AuthorizationActivity.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="UnitAnroidPrinterApp" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\AuthorizationActivity.cs" line="73" column="1" />

@@ -65,7 +65,7 @@ public final class R {
         public static final int rowspinner=0x7f030002;
     }
     public static final class string {
-        public static final int ApplicationName=0x7f040019;
+        public static final int ApplicationName=0x7f04001a;
         public static final int AuthCreate=0x7f040012;
         public static final int AuthEnter=0x7f040011;
         public static final int AuthEnterName=0x7f04000f;
@@ -73,13 +73,14 @@ public final class R {
         public static final int ButtonGetInformationDevice=0x7f040001;
         public static final int ButtonSave=0x7f04000e;
         public static final int Comment=0x7f04000d;
-        public static final int CompleteCreateEntry=0x7f040016;
+        public static final int CompleteCreateEntry=0x7f040017;
+        public static final int CompleteSaveInfo=0x7f040013;
         public static final int CounterBlackWhite=0x7f04000b;
         public static final int CounterColor=0x7f04000c;
-        public static final int DefaultValueInfo=0x7f040013;
-        public static final int ErrorAuth=0x7f040015;
-        public static final int ErrorCreateEntry=0x7f040017;
-        public static final int ErrorSerialKey=0x7f040014;
+        public static final int DefaultValueInfo=0x7f040014;
+        public static final int ErrorAuth=0x7f040016;
+        public static final int ErrorCreateEntry=0x7f040018;
+        public static final int ErrorSerialKey=0x7f040015;
         public static final int TileCity=0x7f040007;
         public static final int TitleAddress=0x7f040008;
         public static final int TitleAddressMachine=0x7f040005;
@@ -90,7 +91,7 @@ public final class R {
         public static final int TitleNumberAgreement=0x7f040003;
         public static final int TitlePeriodContract=0x7f040004;
         public static final int TypeWork=0x7f04000a;
-        public static final int URLApi=0x7f040018;
+        public static final int URLApi=0x7f040019;
     }
     public static final class style {
         public static final int Mono_Android_Theme_Splash=0x7f060000;
