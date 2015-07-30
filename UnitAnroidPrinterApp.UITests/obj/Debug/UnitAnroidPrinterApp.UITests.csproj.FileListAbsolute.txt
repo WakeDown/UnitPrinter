@@ -1,9 +1,0 @@
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\bin\Debug\UnitAnroidPrinterApp.UITests.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\bin\Debug\UnitAnroidPrinterApp.UITests.pdb
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\bin\Debug\nunit.framework.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\bin\Debug\Xamarin.UITest.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\bin\Debug\nunit.framework.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\bin\Debug\Xamarin.UITest.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\obj\Debug\UnitAnroidPrinterApp.UITests.csprojResolveAssemblyReference.cache
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\obj\Debug\UnitAnroidPrinterApp.UITests.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp.UITests\obj\Debug\UnitAnroidPrinterApp.UITests.pdb
