@@ -4,5 +4,4 @@ C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\D
 C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\Newtonsoft.Json.dll
 C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.Core.dll
 C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.Xml.dll
 C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.Runtime.Serialization.dll
