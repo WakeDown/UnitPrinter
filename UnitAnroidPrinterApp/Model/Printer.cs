@@ -1,16 +1,17 @@
-using System;
-
 namespace UnitAnroidPrinterApp
 {
-	class Printer : Device
+    public class Printer : Device
 	{
-		public int CounterWhiteAndBlack{ get; set; }
-		public int CounterColor{ get; set; }
+		public string MonoCounter { get; set; }
+		public string ColorCounter { get; set; }
 
-		public Printer(Device device, int counterWhiteAndBlack, int counterColor) : base(device)
+        public Printer(Device device) : base(device) { }
+
+		public Printer(Device device, string counterMono,
+            string counterColor) : base(device)
 		{
-			CounterWhiteAndBlack = counterWhiteAndBlack;
-			CounterColor = counterColor;
+			MonoCounter = counterMono;
+            ColorCounter = counterColor;
 		}
 	}
 }

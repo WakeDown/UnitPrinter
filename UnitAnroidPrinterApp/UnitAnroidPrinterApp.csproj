@@ -17,8 +17,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
     <NuGetPackageImportStamp>6f5880d5</NuGetPackageImportStamp>
-    <AndroidLinkMode>Full</AndroidLinkMode>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +29,15 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <Debugger>Xamarin</Debugger>
+    <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
+    <AndroidStoreUncompressedFileExtensions>
+    </AndroidStoreUncompressedFileExtensions>
+    <MandroidI18n>
+    </MandroidI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -40,6 +48,10 @@
     <ConsolePause>false</ConsolePause>
     <DebugSymbols>true</DebugSymbols>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
+    <Debugger>Xamarin</Debugger>
+    <DevInstrumentationEnabled>False</DevInstrumentationEnabled>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -51,26 +63,35 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompleteSaveEntry.cs" />
+    <Compile Include="DataBase\DispatchDB.cs" />
+    <Compile Include="DataBase\PrinterEntryDB.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Model\Dispatch.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Agreement.cs" />
     <Compile Include="Model\Device.cs" />
-    <Compile Include="Model\DeviceInfo.cs" />
-    <Compile Include="Model\DispatchInfo.cs" />
     <Compile Include="Model\IDevice.cs" />
     <Compile Include="Model\Printer.cs" />
-    <Compile Include="DataBase\DispatchPrinterInfoDB.cs" />
     <Compile Include="DataBase\SQLite.cs" />
     <Compile Include="DataBase\SQLiteAsync.cs" />
     <Compile Include="AuthorizationActivity.cs" />
     <Compile Include="DataBase\AccountDB.cs" />
+    <Compile Include="StartActivity.cs" />
+    <Compile Include="DataBase\TypeWorDB.cs" />
+    <Compile Include="UnitAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\CompleteSaveEntry.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Start.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -83,16 +104,13 @@
     <AndroidResource Include="Resources\layout\RowSpinner.axml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\layout\Authorization.axml" />
-    <AndroidResource Include="Resources\layout-normal-land\Authorization.axml" />
-    <AndroidResource Include="Resources\layout-normal-port\Authorization.axml" />
-    <AndroidResource Include="Resources\layout-large\Authorization.axml" />
-    <AndroidResource Include="Resources\layout-xlarge\Authorization.axml" />
-    <AndroidResource Include="Resources\layout-normal\Main.axml" />
-    <AndroidResource Include="Resources\layout-large-port\Main.axml" />
-    <AndroidResource Include="Resources\layout-large-land\Main.axml" />
-    <AndroidResource Include="Resources\layout-xlarge\Main.axml" />
-    <AndroidResource Include="Resources\layout-xlarge\RowSpinner.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-ru\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-ru\TextStyle.xml" />
+  </ItemGroup>
 </Project>
