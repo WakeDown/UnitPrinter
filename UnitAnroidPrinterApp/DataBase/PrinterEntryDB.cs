@@ -23,10 +23,9 @@ namespace UnitAnroidPrinterApp
             information.Add(ContractStr);
             information.Add(DeviceStr);
             information.Add(AddressStr);
-            information.Add(DeviceStr);
-            information.Add(DeviceId.ToString());
+            information.Add("id " + DeviceId);
 
-            return string.Join("\n", information);
+            return string.Join(Environment.NewLine, information);
         }
     }
 }

@@ -51,6 +51,7 @@ namespace UnitAnroidPrinterApp
             _serialKey.Enabled = false;
 
             _layoutInformation.Visibility = ViewStates.Visible;
+            _layoutViewInformation.Visibility = ViewStates.Visible;
             _informationDevice.Text = deviceEntry.GetFormatInformation();
             _informationDevice.Enabled = false;
 
