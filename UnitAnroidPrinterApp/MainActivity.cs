@@ -3,12 +3,10 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Newtonsoft.Json;
 using SQLite;
 using System;
 using System.IO;
 using System.Linq;
-using System.Net;
 
 namespace UnitAnroidPrinterApp
 {
@@ -84,27 +82,19 @@ namespace UnitAnroidPrinterApp
 
 		private void HandleClickGetInfo(object sender, EventArgs e)
 		{
-			//try
-			//{
-   //             _deviceInfoDB = _unitApi.GetPrinterEntry(_serialKey.Text);
-   //             ViewFillForm(_deviceInfoDB);
-   //         }
-			//catch(Exception)
-			//{
-				try
-				{
-                    using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
-                    {
-                        _deviceInfoDB = dbConnection.Get<PrinterEntryDB>(
-                            x => x.DeviceSerialNum == _serialKey.Text);
-                        ViewFillForm(_deviceInfoDB);
-                    }
-				}
-				catch(Exception)
+			try
+			{
+                using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
                 {
-					Toast.MakeText (this, Resource.String.ErrorSerialKey, ToastLength.Long).Show();
-				}
-            //}
+                    _deviceInfoDB = dbConnection.Get<PrinterEntryDB>(
+                        x => x.DeviceSerialNum.ToLower() == _serialKey.Text.ToLower());
+                    ViewFillForm(_deviceInfoDB);
+                }
+			}
+			catch(Exception)
+            {
+				Toast.MakeText (this, Resource.String.ErrorSerialKey, ToastLength.Long).Show();
+			}
         }
 
         private void HandleClickSaveInfo(object sender, EventArgs e)
@@ -122,15 +112,18 @@ namespace UnitAnroidPrinterApp
                 return;
             }
 
-            Device device = new Device(_serialKey.Text, _deviceInfoDB.IdDevice, _deviceModel.Text);
+            Device device = new Device(_serialKey.Text, _deviceInfoDB.DeviceId, _deviceModel.Text);
             Printer printer = new Printer(device, _monoCounter.Text, _colorCounter.Text);
             TypeWorDB typeWork;
+            string specialistSid;
             using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
             {
                 string selectTypeWork = _spinner.SelectedItem.ToString();
                 typeWork = dbConnection.Get<TypeWorDB>(x => x.Name == selectTypeWork);
+
+                specialistSid = dbConnection.Get<AccountDB>(x => x.Login == _login).Sid;
             }
-            Dispatch dispatch = new Dispatch(printer, _login, _comment.Text, _cityName.Text,
+            Dispatch dispatch = new Dispatch(printer, specialistSid, _comment.Text, _cityName.Text,
                 _address.Text, _clientName.Text, typeWork.Id);
             DispatchDB dispatchDB = DispatchDB.Parse(dispatch);
 
@@ -160,9 +153,7 @@ namespace UnitAnroidPrinterApp
 
                     using (var _dataBase = new SQLiteConnection(_dbUnitAndroidPrinterAppLocal))
                     {
-                        //updateEntryDB(_dataBase, dispatchDB, dispatchDB.GetType());
                         _dataBase.Insert(dispatchDB);
-                        var qwe = _dataBase.Table<DispatchDB>().Count();
                     }
                     GoCompleteSaveEntryActivity();
                 }

@@ -32,14 +32,14 @@ namespace UnitAnroidPrinterApp
 		{
             AccountDB account = new AccountDB()
             { Login = _name.Text, Password = _pass.Text, Sid = "test", CurUserAdSid = null };
-          
-			using (var _dataBase = new SQLiteConnection (_dbUnitAndroidPrinterApp)) {
-				_dataBase.Insert (account);
-			}
+
+            using (var _dataBase = new SQLiteConnection(_dbUnitAndroidPrinterApp))
+            {
+                _dataBase.Insert(account);
+            }
 			Toast.MakeText(this, Resource.String.CompleteCreateEntry, ToastLength.Long).Show();
 		}
 		
-
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);

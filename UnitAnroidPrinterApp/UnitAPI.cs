@@ -44,6 +44,7 @@ namespace UnitAnroidPrinterApp
             HttpWebRequest requestGetPrinterEntry = (HttpWebRequest)WebRequest.Create(url);
             requestGetPrinterEntry.ContentType = "application/json; charset=utf-8";
             requestGetPrinterEntry.Method = "POST";
+            requestGetPrinterEntry.Timeout = int.MaxValue;
             using (var streamWriter = new StreamWriter(requestGetPrinterEntry.GetRequestStream()))
             {
                 streamWriter.Write(json);
@@ -84,6 +85,14 @@ namespace UnitAnroidPrinterApp
             return typesWork;
         }
 
+        public async Task<TypeWorDB[]> GetTypesWorkAsync()
+        {
+            string url = "http://test.api.unitgroup.ru/data/ServiceMobile/GetPlanActionTypeList";
+            string responseStr = await _getApiResponseAsync(_getApiRequest(url));
+            TypeWorDB[] typesWork = JsonConvert.DeserializeObject<TypeWorDB[]>(responseStr);
+            return typesWork;
+        }
+
         public PrinterEntryDB GetPrinterEntry(string serialKey)
         {
             string urlApi = "https://test.api.unitgroup.ru/data/Device/GetInfo?serialNum={0}";
@@ -118,7 +127,16 @@ namespace UnitAnroidPrinterApp
             return deviceInfoResult;
         }
 
-        public static byte[] GetChecksum(object obj)
+        public async Task<string> GetCheckSumAsync()
+        {
+            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetDeviceInfoListHash";
+
+            string responseStr = await _getApiResponseAsync(_getApiRequest(urlApi));
+            string checkSum = (string)JsonConvert.DeserializeObject(responseStr);
+            return checkSum;
+        }
+
+        public static byte[] CalculateChecksum(object obj)
         {
             var binFormatter = new BinaryFormatter();
             var mStream = new MemoryStream();
@@ -154,6 +172,25 @@ namespace UnitAnroidPrinterApp
             string jsonStr = JsonConvert.SerializeObject(dispatch);
 
             string responseStr = _getApiResponse(_getApiRequest(urlApi, jsonStr));
+
+            var id = JsonConvert.DeserializeAnonymousType(responseStr, new { id = string.Empty });
+            if (id.id == null)
+            {
+                var errorMessage = JsonConvert.DeserializeAnonymousType(
+                    responseStr, new { errorMessage = string.Empty });
+                throw new WebException(errorMessage.errorMessage);
+            }
+
+            return id.id;
+        }
+
+        public async Task<string> SavePrinterEntryAsync(DispatchDB dispatch)
+        {
+            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/SavePlanServiceIssue";
+
+            string jsonStr = JsonConvert.SerializeObject(dispatch);
+
+            string responseStr = await _getApiResponseAsync(_getApiRequest(urlApi, jsonStr));
 
             var id = JsonConvert.DeserializeAnonymousType(responseStr, new { id = string.Empty });
             if (id.id == null)

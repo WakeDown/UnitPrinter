@@ -12,7 +12,7 @@ namespace UnitAnroidPrinterApp
         public string AddressStr { get; set; }
         public string DescrStr { get; set; }
         public string DeviceSerialNum { get; set; }
-        public int IdDevice { get; set; }
+        public string DeviceId { get; set; }
 
         public PrinterEntryDB() { }
 
@@ -24,9 +24,9 @@ namespace UnitAnroidPrinterApp
             information.Add(DeviceStr);
             information.Add(AddressStr);
             information.Add(DeviceStr);
-            information.Add(IdDevice.ToString());
+            information.Add(DeviceId.ToString());
 
-            return String.Join("\n", information);
+            return string.Join("\n", information);
         }
     }
 }

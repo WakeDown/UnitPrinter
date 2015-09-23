@@ -6,7 +6,7 @@ namespace UnitAnroidPrinterApp
     {
         public string DeviceSerialNum { get; set; }
 
-        public int IdDevice { get; set; }
+        public string IdDevice { get; set; }
 
         public string DeviceModel { get; set; }
 

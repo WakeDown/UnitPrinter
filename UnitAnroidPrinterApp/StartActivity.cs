@@ -2,10 +2,13 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using Newtonsoft.Json;
 using SQLite;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 
 namespace UnitAnroidPrinterApp
 {
@@ -26,11 +29,11 @@ namespace UnitAnroidPrinterApp
             SetContentView(Resource.Layout.Start);
             FindViewById<TextView>(Resource.Id.TitleWait).Text = Resources.GetString(Resource.String.Wait);
 
-            SaveLocalData();
+            SaveLocalDataAsync();
             GetDataAsync();
         }
 
-        private void SaveLocalData()
+        private async void SaveLocalDataAsync()
         {
             using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterAppLocal))
             {
@@ -38,12 +41,11 @@ namespace UnitAnroidPrinterApp
                 var saveLocalTableDispatch = dbConnection.Table<DispatchDB>();
                 if (saveLocalTableDispatch.Count() != 0)
                 {
-                    for(int i = 0;i<saveLocalTableDispatch.Count();i++)
+                    foreach(var dispatch in saveLocalTableDispatch)
                     {
-                        var dispatch = saveLocalTableDispatch.ElementAt(i);
                         try
                         {
-                            unitApi.SavePrinterEntry(dispatch);
+                            await unitApi.SavePrinterEntryAsync(dispatch);
                             dbConnection.Delete(dispatch);
                         }
                         catch(WebException) { }
@@ -54,36 +56,51 @@ namespace UnitAnroidPrinterApp
 
         private async void GetDataAsync()
         {
-            using (var dataBaseConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
+            using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
             {
-                dataBaseConnection.CreateTable<AccountDB>();
-                dataBaseConnection.CreateTable<PrinterEntryDB>();
-                dataBaseConnection.CreateTable<TypeWorDB>();
+                dbConnection.CreateTable<AccountDB>();
+                dbConnection.CreateTable<PrinterEntryDB>();
+                dbConnection.CreateTable<TypeWorDB>();
 
-                if (dataBaseConnection.Table<PrinterEntryDB>().Count() == 0 &&
-                    dataBaseConnection.Table<AccountDB>().Count() == 0)
+                if (true)
                 {
                     try
                     {
-                        TypeWorDB[] typesWork = unitApi.GetTypesWork();
+                        TypeWorDB[] typesWork = await unitApi.GetTypesWorkAsync();
                         PrinterEntryDB[] printerEntrys = await unitApi.GetAllPrinterEntryAsync();
-
-                        var utf8 = System.Text.Encoding.UTF8.GetString(UnitAPI.GetChecksum(printerEntrys));
-                        var ascii = System.Text.Encoding.ASCII.GetString(UnitAPI.GetChecksum(printerEntrys));
-                        var Unicode = System.Text.Encoding.Unicode.GetString(UnitAPI.GetChecksum(printerEntrys));
-                        var utf32 = System.Text.Encoding.UTF32.GetString(UnitAPI.GetChecksum(printerEntrys));
-
                         AccountDB[] accounts = await unitApi.GetAllAccountAsync();
-                        dataBaseConnection.InsertAll(accounts);
-                        dataBaseConnection.InsertAll(printerEntrys);
-                        dataBaseConnection.InsertAll(typesWork);
+
+                        dbConnection.InsertAll(accounts);
+                        dbConnection.InsertAll(printerEntrys);
+                        dbConnection.InsertAll(typesWork);
+
+                        //List<DeviceInfoResult> listPrinterEntry = new List<DeviceInfoResult>();
+                        //foreach (var printerEntry in printerEntrys)
+                        //    listPrinterEntry.Add(new DeviceInfoResult
+                        //    {
+                        //        id_device = printerEntry.DeviceId,
+                        //        contractor_name = printerEntry.ContractorStr,
+                        //        contract_number = printerEntry.ContractStr,
+                        //        DescrStr = printerEntry.DescrStr,
+                        //        device_address = printerEntry.AddressStr,
+                        //        device_name = printerEntry.DeviceStr,
+                        //        serial_num = printerEntry.DeviceSerialNum
+                        //    });
+
+
+                        //byte[] calculateCheckSum = UnitAPI.CalculateChecksum(listPrinterEntry);
+                        //var json = JsonConvert.SerializeObject(calculateCheckSum);
+                        //var str = JsonConvert.DeserializeObject(json);
+
+                        //var checkSum = await unitApi.GetCheckSumAsync();
+
+                        GoToAutorizationActivity();
                     }
                     catch (Exception)
                     {
                         FindViewById<TextView>(Resource.Id.TitleWait).Text = Resources.GetString(Resource.String.NoConnectionServer);
                     }
                 }
-                GoToAutorizationActivity();
             }
         }
 

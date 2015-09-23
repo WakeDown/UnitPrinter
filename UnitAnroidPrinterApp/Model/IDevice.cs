@@ -3,7 +3,7 @@
     public interface IDevice
 	{
 		string DeviceSerialNum { get; }
-        int IdDevice { get; }
+        string IdDevice { get; }
         string DeviceModel { get; set; }
 	}
 }
