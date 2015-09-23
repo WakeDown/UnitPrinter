@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.unitanroidprinterapp" android:installLocation="auto">
   <uses-sdk android:minSdkVersion="19" />
   <application android:label="UnitAnroidPrinterApp" android:icon="@drawable/icon" android:name="mono.android.app.Application" android:debuggable="true">
-    <activity android:icon="@drawable/icon" android:label="CompleteSaveEntry" android:name="md5c1ca6ddcc511bdf9ea9df3811c5cfc3b.CompleteSaveEntry" />
+    <activity android:icon="@drawable/icon" android:label="CompleteSaveEntry" android:name="md5c1ca6ddcc511bdf9ea9df3811c5cfc3b.CompleteSaveActivity" />
     <activity android:icon="@drawable/icon" android:label="UnitAnroidPrinterApp" android:name="md5c1ca6ddcc511bdf9ea9df3811c5cfc3b.MainActivity" />
     <activity android:icon="@drawable/icon" android:label="AuthorizationActivity" android:name="md5c1ca6ddcc511bdf9ea9df3811c5cfc3b.AuthorizationActivity" />
     <activity android:icon="@drawable/icon" android:label="StartActivity" android:name="md5c1ca6ddcc511bdf9ea9df3811c5cfc3b.StartActivity" />

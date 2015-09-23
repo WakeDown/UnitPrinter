@@ -63,7 +63,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompleteSaveEntry.cs" />
+    <Compile Include="CompleteSaveActivity.cs" />
     <Compile Include="DataBase\DeviceInfoResult.cs" />
     <Compile Include="DataBase\DispatchDB.cs" />
     <Compile Include="DataBase\PrinterEntryDB.cs" />

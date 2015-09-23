@@ -236,7 +236,7 @@ namespace UnitAnroidPrinterApp
 
         void GoCompleteSaveEntryActivity()
         {
-            var activity2 = new Intent(this, typeof(CompleteSaveEntry));
+            var activity2 = new Intent(this, typeof(CompleteSaveActivity));
             activity2.PutExtra("Name", _login);
             activity2.PutExtra("Pass", _pass);
             StartActivity(activity2);
