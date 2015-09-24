@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="90"
-                android:id="@+id/linearLayout2"
+                android:id="@+id/enterSerialKeyLayout"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_marginBottom="20dp">
@@ -51,36 +51,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="50"
-                android:id="@+id/linearLayout1"
+                android:id="@+id/informationLayout"
                 android:layout_marginBottom="20dp">
+                <TextView
+                    android:text="@string/TitleInformationDevice"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TitleInformationDevice"
+                    style="@style/TitleTextNormal" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/InformationDevice"
+                    style="@style/TextNormal" />
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/linearLayout6"
-                    android:layout_weight="1">
-                    <TextView
-                        android:text="@string/TitleInformationDevice"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/TitleInformationDevice"
-                        style="@style/TitleTextNormal" />
-                    <TextView
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/InformationDevice"
-                        style="@style/TextNormal" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/linearLayout5"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/enterModelLayout">
                     <TextView
                         android:text="@string/TitleDeviceModel"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -95,20 +85,12 @@
                         android:id="@+id/DeviceModel"
                         style="@style/TextNormal"
                         android:layout_weight="1" />
-                    <TextView
-                        android:text="@string/TitleCityName"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/TitleCityName"
-                        style="@style/TitleTextNormal"
-                        android:layout_weight="1" />
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/CityName"
-                        style="@style/TextNormal"
-                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/enterAddressLayout">
                     <TextView
                         android:text="@string/TitleAddress"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -123,6 +105,35 @@
                         android:id="@+id/Address"
                         style="@style/TextNormal"
                         android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/enterCityNameLayout">
+                    <TextView
+                        android:text="@string/TitleCityName"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/TitleCityName"
+                        style="@style/TitleTextNormal"
+                        android:layout_weight="1" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/CityName"
+                        style="@style/TextNormal"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/enterClientNameLayout"
+                    android:layout_weight="1">
                     <TextView
                         android:text="@string/TitleClientName"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -143,7 +154,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/linearLayout3"
+                android:id="@+id/enterDispatchLayout"
                 android:layout_weight="70">
                 <Spinner
                     android:layout_width="match_parent"
@@ -164,7 +175,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/MonoCounter"
                     style="@style/TextNormal"
-                    android:layout_weight="10" />
+                    android:layout_weight="10"
+                    android:inputType="number" />
                 <TextView
                     android:text="@string/CounterColor"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -178,7 +190,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/ColorCounter"
                     style="@style/TextNormal"
-                    android:layout_weight="10" />
+                    android:layout_weight="10"
+                    android:inputType="number" />
                 <TextView
                     android:text="@string/Comment"
                     android:textAppearance="?android:attr/textAppearanceLarge"

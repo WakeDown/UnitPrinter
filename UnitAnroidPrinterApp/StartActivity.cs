@@ -12,7 +12,7 @@ using System.Text;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity(Label = "StartActivity", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
     public class StartActivity : Activity
     {
         private string _dbUnitAndroidPrinterApp = Path.Combine(
@@ -60,13 +60,15 @@ namespace UnitAnroidPrinterApp
             {
                 dbConnection.CreateTable<AccountDB>();
                 dbConnection.CreateTable<PrinterEntryDB>();
-                dbConnection.CreateTable<TypeWorDB>();
+                dbConnection.CreateTable<TypeWorkDB>();
 
-                if (true)
+                if(false)
+                    GoToAutorizationActivity();
+                else
                 {
                     try
                     {
-                        TypeWorDB[] typesWork = await unitApi.GetTypesWorkAsync();
+                        TypeWorkDB[] typesWork = await unitApi.GetTypesWorkAsync();
                         PrinterEntryDB[] printerEntrys = await unitApi.GetAllPrinterEntryAsync();
                         AccountDB[] accounts = await unitApi.GetAllAccountAsync();
 
@@ -98,7 +100,13 @@ namespace UnitAnroidPrinterApp
                     }
                     catch (Exception)
                     {
-                        FindViewById<TextView>(Resource.Id.TitleWait).Text = Resources.GetString(Resource.String.NoConnectionServer);
+                        if (dbConnection.Table<TypeWorkDB>().Count() != 0 &&
+                            dbConnection.Table<PrinterEntryDB>().Count() != 0 &&
+                            dbConnection.Table<AccountDB>().Count() != 0)
+                            GoToAutorizationActivity();
+                        else
+                            FindViewById<TextView>(Resource.Id.TitleWait).Text =
+                                Resources.GetString(Resource.String.NoConnectionServer);
                     }
                 }
             }

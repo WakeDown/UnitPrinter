@@ -77,19 +77,19 @@ namespace UnitAnroidPrinterApp
             }
         }
 
-        public TypeWorDB[] GetTypesWork()
+        public TypeWorkDB[] GetTypesWork()
         {
             string url = "http://test.api.unitgroup.ru/data/ServiceMobile/GetPlanActionTypeList";
             string responseStr = _getApiResponse(_getApiRequest(url));
-            TypeWorDB[] typesWork = JsonConvert.DeserializeObject<TypeWorDB[]>(responseStr);
+            TypeWorkDB[] typesWork = JsonConvert.DeserializeObject<TypeWorkDB[]>(responseStr);
             return typesWork;
         }
 
-        public async Task<TypeWorDB[]> GetTypesWorkAsync()
+        public async Task<TypeWorkDB[]> GetTypesWorkAsync()
         {
             string url = "http://test.api.unitgroup.ru/data/ServiceMobile/GetPlanActionTypeList";
             string responseStr = await _getApiResponseAsync(_getApiRequest(url));
-            TypeWorDB[] typesWork = JsonConvert.DeserializeObject<TypeWorDB[]>(responseStr);
+            TypeWorkDB[] typesWork = JsonConvert.DeserializeObject<TypeWorkDB[]>(responseStr);
             return typesWork;
         }
 

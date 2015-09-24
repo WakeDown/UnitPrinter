@@ -9,7 +9,7 @@ using System.IO;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity (Label = "AuthorizationActivity", Icon = "@drawable/icon")]		
+    [Activity (Icon = "@drawable/icon")]		
 	public class AuthorizationActivity : Activity
 	{
 		private EditText _name;

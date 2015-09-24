@@ -1,6 +1,6 @@
 namespace UnitAnroidPrinterApp
 {
-    class TypeWorDB
+    class TypeWorkDB
     {
         public string Id { get; set; }
         public string IdParent { get; set; }

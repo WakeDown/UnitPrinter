@@ -5,12 +5,14 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity (Label = "UnitAnroidPrinterApp", Icon = "@drawable/icon")]
+    [Activity (Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		private string _login;
@@ -30,10 +32,13 @@ namespace UnitAnroidPrinterApp
         private EditText _colorCounter;
         private EditText _comment;
 
-        private LinearLayout _layoutInformation;
-        private LinearLayout _layoutEnterInformation;
-		private LinearLayout _layoutViewInformation;
-		private LinearLayout _layoutBid;
+        private LinearLayout _informationLayout;
+        private LinearLayout _enterModelLayout;
+        private LinearLayout _enterAddressLayout;
+        private LinearLayout _enterCityNameLayout;
+        private LinearLayout _enterClientNameLayout;
+
+        private LinearLayout _enterDispatchLayout;
 
 		private string _dbUnitAndroidPrinterApp = Path.Combine (
 			System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal),
@@ -50,34 +55,31 @@ namespace UnitAnroidPrinterApp
 		{
             _serialKey.Enabled = false;
 
-            _layoutInformation.Visibility = ViewStates.Visible;
-            _layoutViewInformation.Visibility = ViewStates.Visible;
+            _informationLayout.Visibility = ViewStates.Visible;
+            _enterDispatchLayout.Visibility = ViewStates.Visible;
             _informationDevice.Text = deviceEntry.GetFormatInformation();
             _informationDevice.Enabled = false;
 
-            Func<string, bool> checkAvailability = (string dataIsEmpty) =>
+            Func<string, bool> checkIsEmpty = (string dataIsEmpty) =>
             dataIsEmpty == null ||
             dataIsEmpty.ToLower() == "none" ||
             dataIsEmpty.ToLower() == "null" ||
             dataIsEmpty == string.Empty;
 
-            _layoutEnterInformation.Visibility = ViewStates.Visible;
-            if (!checkAvailability(deviceEntry.DeviceStr))
+            if (!checkIsEmpty(deviceEntry.DeviceStr))
             {
                 _deviceModel.Text = deviceEntry.DeviceStr;
-                _deviceModel.Enabled = false;
+                _enterModelLayout.Visibility = ViewStates.Gone;
             }
-            if (!checkAvailability(deviceEntry.AddressStr))
+            if (!checkIsEmpty(deviceEntry.AddressStr))
             {
                 _address.Text = deviceEntry.AddressStr;
-                _address.Enabled = false;
+                _enterAddressLayout.Visibility = ViewStates.Gone;
             }
 
-            _layoutBid.Visibility = ViewStates.Visible;
-            if (!checkAvailability(deviceEntry.DescrStr))
+            if (!checkIsEmpty(deviceEntry.DescrStr))
             {
                 _comment.Text = deviceEntry.DescrStr;
-                _comment.Enabled = false;
             }
         }
 
@@ -115,12 +117,12 @@ namespace UnitAnroidPrinterApp
 
             Device device = new Device(_serialKey.Text, _deviceInfoDB.DeviceId, _deviceModel.Text);
             Printer printer = new Printer(device, _monoCounter.Text, _colorCounter.Text);
-            TypeWorDB typeWork;
+            TypeWorkDB typeWork;
             string specialistSid;
             using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
             {
                 string selectTypeWork = _spinner.SelectedItem.ToString();
-                typeWork = dbConnection.Get<TypeWorDB>(x => x.Name == selectTypeWork);
+                typeWork = dbConnection.Get<TypeWorkDB>(x => x.Name == selectTypeWork);
 
                 specialistSid = dbConnection.Get<AccountDB>(x => x.Login == _login).Sid;
             }
@@ -183,8 +185,13 @@ namespace UnitAnroidPrinterApp
             _clientName = FindViewById<EditText>(Resource.Id.ClientName);
 
             _spinner = FindViewById<Spinner>(Resource.Id.TypeWork);
-            TypeWorDB[] typesWork = _unitApi.GetTypesWork();
-            var typesWorkName = (from typeWork in typesWork select typeWork.Name).ToArray();
+            string[] typesWorkName;
+            using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
+            {
+                typesWorkName = dbConnection.Table<TypeWorkDB>().Select<TypeWorkDB, string>(
+                    typeWork => typeWork.Name).ToArray(); ;
+            }
+            
             var adapter = new ArrayAdapter<string>(this, Resource.Layout.RowSpinner, typesWorkName);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             _spinner = FindViewById<Spinner>(Resource.Id.TypeWork);
@@ -193,14 +200,16 @@ namespace UnitAnroidPrinterApp
             _colorCounter = FindViewById<EditText>(Resource.Id.ColorCounter);
             _comment = FindViewById<EditText>(Resource.Id.Comment);
 
-            _layoutInformation = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
-            _layoutEnterInformation = FindViewById<LinearLayout>(Resource.Id.linearLayout5);
-            _layoutViewInformation = FindViewById<LinearLayout>(Resource.Id.linearLayout6);
-            _layoutBid = FindViewById<LinearLayout>(Resource.Id.linearLayout3);
-            _layoutEnterInformation.Visibility = ViewStates.Gone;
-            _layoutViewInformation.Visibility = ViewStates.Gone;
-            _layoutInformation.Visibility = ViewStates.Gone;
-            _layoutBid.Visibility = ViewStates.Gone;
+            _informationLayout = FindViewById<LinearLayout>(Resource.Id.informationLayout);
+            _enterModelLayout = FindViewById<LinearLayout>(Resource.Id.enterModelLayout);
+            _enterAddressLayout = FindViewById<LinearLayout>(Resource.Id.enterAddressLayout);
+            _enterCityNameLayout = FindViewById<LinearLayout>(Resource.Id.enterCityNameLayout);
+            _enterClientNameLayout = FindViewById<LinearLayout>(Resource.Id.enterClientNameLayout);
+
+            _enterDispatchLayout = FindViewById<LinearLayout>(Resource.Id.enterDispatchLayout);
+
+            _informationLayout.Visibility = ViewStates.Gone;
+            _enterDispatchLayout.Visibility = ViewStates.Gone;
 
 			var buttonGetInfo = FindViewById<Button> (Resource.Id.GetInfoDevice);
 			buttonGetInfo.Click += HandleClickGetInfo;
@@ -217,11 +226,13 @@ namespace UnitAnroidPrinterApp
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            _layoutEnterInformation.Visibility = ViewStates.Gone;
-            _layoutViewInformation.Visibility = ViewStates.Gone;
-            _layoutInformation.Visibility = ViewStates.Gone;
-            _layoutBid.Visibility = ViewStates.Gone;
-            _serialKey.Enabled = true;
+            _informationLayout.Visibility = ViewStates.Gone;
+            _enterModelLayout.Visibility = ViewStates.Visible;
+            _enterAddressLayout.Visibility = ViewStates.Visible;
+
+            _enterDispatchLayout.Visibility = ViewStates.Gone;
+
+        _serialKey.Enabled = true;
         }
 
 		protected override void OnCreate (Bundle bundle)

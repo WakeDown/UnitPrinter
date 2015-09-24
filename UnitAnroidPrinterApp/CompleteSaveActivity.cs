@@ -6,7 +6,7 @@ using System;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity(Label = "CompleteSaveEntry", Icon = "@drawable/icon")]
+    [Activity(Icon = "@drawable/icon")]
     public class CompleteSaveActivity : Activity
     {
         private Button Exit;
@@ -31,10 +31,10 @@ namespace UnitAnroidPrinterApp
 
         void GoMainActivity()
         {
-            var activity2 = new Intent(this, typeof(MainActivity));
-            activity2.PutExtra("Name", Intent.GetStringExtra("Name"));
-            activity2.PutExtra("Pass", Intent.GetStringExtra("Pass"));
-            StartActivity(activity2);
+            var activity = new Intent(this, typeof(MainActivity));
+            activity.PutExtra("Name", Intent.GetStringExtra("Name"));
+            activity.PutExtra("Pass", Intent.GetStringExtra("Pass"));
+            StartActivity(activity);
         }
 
         private void CreateAnother_Click(object sender, EventArgs e)
