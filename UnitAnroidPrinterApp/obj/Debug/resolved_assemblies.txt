@@ -1,2 +1,2 @@
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\UnitAnroidPrinterApp.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\Newtonsoft.Json.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\assemblies\UnitAnroidPrinterApp.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\assemblies\Newtonsoft.Json.dll

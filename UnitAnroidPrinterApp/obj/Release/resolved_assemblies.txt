@@ -1,7 +1,7 @@
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\UnitAnroidPrinterApp.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\Mono.Android.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\mscorlib.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\Newtonsoft.Json.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\System.Core.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\System.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Release\assemblies\System.Runtime.Serialization.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\UnitAnroidPrinterApp.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\Mono.Android.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\mscorlib.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\Newtonsoft.Json.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\System.Core.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\System.dll
+C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Release\assemblies\System.Runtime.Serialization.dll

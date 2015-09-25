@@ -94,6 +94,21 @@
     <AndroidResource Include="Resources\layout\Start.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout-normal\Authorization.axml" />
+    <AndroidResource Include="Resources\layout-large\Authorization.axml" />
+    <AndroidResource Include="Resources\layout-xlarge\Authorization.axml" />
+    <AndroidResource Include="Resources\layout-large\CompleteSaveEntry.axml" />
+    <AndroidResource Include="Resources\layout-normal\CompleteSaveEntry.axml" />
+    <AndroidResource Include="Resources\layout-xlarge\CompleteSaveEntry.axml" />
+    <AndroidResource Include="Resources\layout-normal\Main.axml" />
+    <AndroidResource Include="Resources\layout-large\Main.axml" />
+    <AndroidResource Include="Resources\layout-xlarge\Main.axml" />
+    <AndroidResource Include="Resources\layout-normal\RowSpinner.axml" />
+    <AndroidResource Include="Resources\layout-large\RowSpinner.axml" />
+    <AndroidResource Include="Resources\layout-xlarge\RowSpinner.axml" />
+    <AndroidResource Include="Resources\layout-normal\Start.axml" />
+    <AndroidResource Include="Resources\layout-large\Start.axml" />
+    <AndroidResource Include="Resources\layout-xlarge\Start.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
