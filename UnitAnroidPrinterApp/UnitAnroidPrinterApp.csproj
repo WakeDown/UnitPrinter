@@ -63,6 +63,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckSum.cs" />
     <Compile Include="CompleteSaveActivity.cs" />
     <Compile Include="DataBase\DeviceInfoResult.cs" />
     <Compile Include="DataBase\DispatchDB.cs" />

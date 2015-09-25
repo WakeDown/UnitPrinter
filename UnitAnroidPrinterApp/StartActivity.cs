@@ -61,13 +61,14 @@ namespace UnitAnroidPrinterApp
                 dbConnection.CreateTable<AccountDB>();
                 dbConnection.CreateTable<PrinterEntryDB>();
                 dbConnection.CreateTable<TypeWorkDB>();
+                dbConnection.CreateTable<CheckSum>();
 
-                if(false)
-                    GoToAutorizationActivity();
-                else
+                var oldCheckSumTable = dbConnection.Table<CheckSum>();
+                if (oldCheckSumTable.Count() == 0)
                 {
                     try
                     {
+                        var newCheckSum = new CheckSum(await unitApi.GetCheckSumAsync());
                         TypeWorkDB[] typesWork = await unitApi.GetTypesWorkAsync();
                         PrinterEntryDB[] printerEntrys = await unitApi.GetAllPrinterEntryAsync();
                         AccountDB[] accounts = await unitApi.GetAllAccountAsync();
@@ -75,39 +76,41 @@ namespace UnitAnroidPrinterApp
                         dbConnection.InsertAll(accounts);
                         dbConnection.InsertAll(printerEntrys);
                         dbConnection.InsertAll(typesWork);
-
-                        //List<DeviceInfoResult> listPrinterEntry = new List<DeviceInfoResult>();
-                        //foreach (var printerEntry in printerEntrys)
-                        //    listPrinterEntry.Add(new DeviceInfoResult
-                        //    {
-                        //        id_device = printerEntry.DeviceId,
-                        //        contractor_name = printerEntry.ContractorStr,
-                        //        contract_number = printerEntry.ContractStr,
-                        //        DescrStr = printerEntry.DescrStr,
-                        //        device_address = printerEntry.AddressStr,
-                        //        device_name = printerEntry.DeviceStr,
-                        //        serial_num = printerEntry.DeviceSerialNum
-                        //    });
-
-
-                        //byte[] calculateCheckSum = UnitAPI.CalculateChecksum(listPrinterEntry);
-                        //var json = JsonConvert.SerializeObject(calculateCheckSum);
-                        //var str = JsonConvert.DeserializeObject(json);
-
-                        //var checkSum = await unitApi.GetCheckSumAsync();
+                        dbConnection.Insert(newCheckSum);
 
                         GoToAutorizationActivity();
                     }
-                    catch (Exception)
+                    catch (WebException)
                     {
-                        if (dbConnection.Table<TypeWorkDB>().Count() != 0 &&
-                            dbConnection.Table<PrinterEntryDB>().Count() != 0 &&
-                            dbConnection.Table<AccountDB>().Count() != 0)
-                            GoToAutorizationActivity();
-                        else
-                            FindViewById<TextView>(Resource.Id.TitleWait).Text =
+                        FindViewById<TextView>(Resource.Id.TitleWait).Text =
                                 Resources.GetString(Resource.String.NoConnectionServer);
                     }
+                }
+                else
+                {
+                    try
+                    {
+                        var newCheckSum = new CheckSum(await unitApi.GetCheckSumAsync());
+                        if (oldCheckSumTable.First() == newCheckSum)
+                            GoToAutorizationActivity();
+                        else
+                        {
+                            TypeWorkDB[] typesWork = await unitApi.GetTypesWorkAsync();
+                            PrinterEntryDB[] printerEntrys = await unitApi.GetAllPrinterEntryAsync();
+                            AccountDB[] accounts = await unitApi.GetAllAccountAsync();
+
+                            dbConnection.DeleteAll<AccountDB>();
+                            dbConnection.DeleteAll<PrinterEntryDB>();
+                            dbConnection.DeleteAll<TypeWorkDB>();
+                            dbConnection.DeleteAll<CheckSum>();
+                            dbConnection.InsertAll(accounts);
+                            dbConnection.InsertAll(printerEntrys);
+                            dbConnection.InsertAll(typesWork);
+                            dbConnection.Insert(newCheckSum);
+                        }
+                    }
+                    catch (WebException) { }
+                    GoToAutorizationActivity();
                 }
             }
         }
