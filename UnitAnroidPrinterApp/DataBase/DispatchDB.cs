@@ -1,9 +1,11 @@
+using SQLite;
 using System;
 
 namespace UnitAnroidPrinterApp
 {
     class DispatchDB
     {
+        [PrimaryKey]
         public string DeviceSerialNum { get; set; }
 
         public string IdDevice { get; set; }

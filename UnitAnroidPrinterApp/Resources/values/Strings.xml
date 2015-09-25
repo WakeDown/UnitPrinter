@@ -20,7 +20,7 @@
     <string name="AuthEnter">Log into this account</string>
     <string name="AuthCreate">Create this account</string>
 
-    <string name="CompleteSaveInfo">Complete save data about printer</string>
+    <string name="CompleteSaveInfo">Complete save data</string>
     <string name="ErrorSaveInfo">Error save data about printer</string>
 
     <string name="ErrorSerialKey">No entry was found with serialkey</string>

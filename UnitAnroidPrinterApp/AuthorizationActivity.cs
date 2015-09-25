@@ -26,7 +26,8 @@ namespace UnitAnroidPrinterApp
 			buttonLogIn.Click += ButtonLogIn_Click;
 			var buttonCreate = FindViewById<Button> (Resource.Id.CreateButton);
 			buttonCreate.Click += ButtonCreate_Click;
-		}
+            buttonCreate.Visibility = Android.Views.ViewStates.Gone;
+        }
 
 		void ButtonCreate_Click (object sender, EventArgs e)
 		{

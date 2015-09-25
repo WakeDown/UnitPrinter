@@ -2,13 +2,10 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Newtonsoft.Json;
 using SQLite;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text;
 
 namespace UnitAnroidPrinterApp
 {
@@ -41,14 +38,19 @@ namespace UnitAnroidPrinterApp
                 var saveLocalTableDispatch = dbConnection.Table<DispatchDB>();
                 if (saveLocalTableDispatch.Count() != 0)
                 {
-                    foreach(var dispatch in saveLocalTableDispatch)
+                    try
                     {
-                        try
+                        foreach (var dispatch in saveLocalTableDispatch)
                         {
+
                             await unitApi.SavePrinterEntryAsync(dispatch);
                             dbConnection.Delete(dispatch);
                         }
-                        catch(WebException) { }
+                        Toast.MakeText(this, Resource.String.CompleteSaveInfo, ToastLength.Long).Show();
+                    }
+                    catch (Exception e)
+                    {
+                        Toast.MakeText(this, e.Message, ToastLength.Long).Show();
                     }
                 }
             }
@@ -91,9 +93,7 @@ namespace UnitAnroidPrinterApp
                     try
                     {
                         var newCheckSum = new CheckSum(await unitApi.GetCheckSumAsync());
-                        if (oldCheckSumTable.First() == newCheckSum)
-                            GoToAutorizationActivity();
-                        else
+                        if (oldCheckSumTable.First() != newCheckSum)
                         {
                             TypeWorkDB[] typesWork = await unitApi.GetTypesWorkAsync();
                             PrinterEntryDB[] printerEntrys = await unitApi.GetAllPrinterEntryAsync();

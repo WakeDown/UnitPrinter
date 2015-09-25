@@ -20,7 +20,7 @@
     <string name="AuthEnter">Войти</string>
     <string name="AuthCreate">Создать аккаунт(тест мод)</string>
 
-    <string name="CompleteSaveInfo">Сохранение записи завершено</string>
+    <string name="CompleteSaveInfo">Сохранение данных завершено</string>
     <string name="ErrorSaveInfo">Ошибка сохранения данных о принтере</string>
 
     <string name="ErrorSerialKey">Устройство с таким серийным номером не найдено</string>

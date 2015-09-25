@@ -2,23 +2,23 @@ namespace UnitAnroidPrinterApp
 {
     class CheckSum
     {
-        public string checkSumStr { get; set; }
+        public string CheckSumStr { get; set; }
 
         public CheckSum() { }
 
-        public static bool operator == (CheckSum checkSumLeft, CheckSum checkSumRight)
+        public static bool operator ==(CheckSum checkSumLeft, CheckSum checkSumRight)
         {
-            return checkSumLeft.checkSumStr == checkSumRight.checkSumStr;
+            return checkSumLeft.CheckSumStr == checkSumRight.CheckSumStr;
         }
 
-        public static bool operator != (CheckSum checkSumLeft, CheckSum checkSumRight)
+        public static bool operator !=(CheckSum checkSumLeft, CheckSum checkSumRight)
         {
-            return checkSumLeft.checkSumStr == checkSumRight.checkSumStr;
+            return checkSumLeft.CheckSumStr != checkSumRight.CheckSumStr;
         }
 
         public CheckSum(string checkSum)
         {
-            checkSumStr = checkSum;
+            CheckSumStr = checkSum;
         }
     }
 }

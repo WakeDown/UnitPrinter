@@ -139,21 +139,6 @@ namespace UnitAnroidPrinterApp
 			{
                 try
                 {
-                    //Func<SQLiteConnection, DispatchDB, Type, int> updateEntryDB = (dataBase, obj, objType) =>
-                    //{
-                    //    var map = dataBase.GetMapping(objType);
-                    //    var pk = map.PK;
-                    //    var cols = from p in map.Columns
-                    //               where p != pk
-                    //               select p;
-                    //    var vals = (from c in cols select c.GetValue(obj)).ToList();
-                    //    vals.Add(obj.DeviceSerialNum);
-                    //    var q = string.Format("update \"{0}\" set {1} where {2} = ? ", map.TableName,
-                    //        string.Join(",", (from c in cols select "\"" + c.Name + "\" = ? ").ToArray()), 
-                    //        "DeviceSerialNum");
-                    //    return dataBase.Execute(q, vals.ToArray());
-                    //};
-
                     using (var _dataBase = new SQLiteConnection(_dbUnitAndroidPrinterAppLocal))
                     {
                         _dataBase.Insert(dispatchDB);
