@@ -217,7 +217,15 @@ namespace UnitAnroidPrinterApp
 
             _enterDispatchLayout.Visibility = ViewStates.Gone;
 
-        _serialKey.Enabled = true;
+            _monoCounter.Text = string.Empty;
+            _colorCounter.Text = string.Empty;
+            _comment.Text = string.Empty;
+            _deviceModel.Text = string.Empty;
+            _cityName.Text = string.Empty;
+            _address.Text = string.Empty;
+            _clientName.Text = string.Empty;
+
+            _serialKey.Enabled = true;
         }
 
 		protected override void OnCreate (Bundle bundle)

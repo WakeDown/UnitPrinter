@@ -81,11 +81,11 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f060027
 			public const int Comment = 2131099687;
 			
-			// aapt resource value: 0x7f06000a
-			public const int CreateAnother = 2131099658;
+			// aapt resource value: 0x7f060009
+			public const int CreateAnother = 2131099657;
 			
-			// aapt resource value: 0x7f060007
-			public const int CreateButton = 2131099655;
+			// aapt resource value: 0x7f060006
+			public const int CreateButton = 2131099654;
 			
 			// aapt resource value: 0x7f060016
 			public const int DeviceModel = 2131099670;
@@ -93,14 +93,14 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f06000f
 			public const int EnterDeviceSerialKey = 2131099663;
 			
-			// aapt resource value: 0x7f060003
-			public const int EnterName = 2131099651;
+			// aapt resource value: 0x7f060002
+			public const int EnterName = 2131099650;
 			
-			// aapt resource value: 0x7f060005
-			public const int EnterPass = 2131099653;
+			// aapt resource value: 0x7f060004
+			public const int EnterPass = 2131099652;
 			
-			// aapt resource value: 0x7f06000b
-			public const int Exit = 2131099659;
+			// aapt resource value: 0x7f06000a
+			public const int Exit = 2131099658;
 			
 			// aapt resource value: 0x7f060010
 			public const int GetInfoDevice = 2131099664;
@@ -108,8 +108,8 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f060013
 			public const int InformationDevice = 2131099667;
 			
-			// aapt resource value: 0x7f060006
-			public const int LogInButton = 2131099654;
+			// aapt resource value: 0x7f060005
+			public const int LogInButton = 2131099653;
 			
 			// aapt resource value: 0x7f060023
 			public const int MonoCounter = 2131099683;
@@ -171,17 +171,17 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f060011
 			public const int informationLayout = 2131099665;
 			
-			// aapt resource value: 0x7f060001
-			public const int linearLayout1 = 2131099649;
-			
 			// aapt resource value: 0x7f060000
-			public const int linearLayout2 = 2131099648;
+			public const int linearLayout1 = 2131099648;
+			
+			// aapt resource value: 0x7f060007
+			public const int linearLayout2 = 2131099655;
+			
+			// aapt resource value: 0x7f06000b
+			public const int linearLayout3 = 2131099659;
 			
 			// aapt resource value: 0x7f060008
-			public const int linearLayout3 = 2131099656;
-			
-			// aapt resource value: 0x7f060009
-			public const int linearLayout4 = 2131099657;
+			public const int linearLayout4 = 2131099656;
 			
 			// aapt resource value: 0x7f06000c
 			public const int scrollView1 = 2131099660;
@@ -189,11 +189,11 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f06002a
 			public const int text1 = 2131099690;
 			
-			// aapt resource value: 0x7f060002
-			public const int textView1 = 2131099650;
+			// aapt resource value: 0x7f060001
+			public const int textView1 = 2131099649;
 			
-			// aapt resource value: 0x7f060004
-			public const int textView2 = 2131099652;
+			// aapt resource value: 0x7f060003
+			public const int textView2 = 2131099651;
 			
 			static Id()
 			{
