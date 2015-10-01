@@ -10,7 +10,7 @@
     <string name="TitleAddress">Адрес:</string>
     <string name="TitleClientName">Имя клиента:</string>
 
-    <string name="CounterMono">Черно-белый счетчик:</string>
+    <string name="CounterMono">Счетчик:</string>
     <string name="CounterColor">Цветной счетчик:</string>
     <string name="Comment">Комментарий:</string>
     <string name="ButtonSave">Сохранить</string>

@@ -66,9 +66,6 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f060019
 			public const int Address = 2131099673;
 			
-			// aapt resource value: 0x7f060029
-			public const int Cancel = 2131099689;
-			
 			// aapt resource value: 0x7f06001c
 			public const int CityName = 2131099676;
 			
@@ -144,8 +141,8 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f060022
 			public const int TitleMonoCounter = 2131099682;
 			
-			// aapt resource value: 0x7f06002b
-			public const int TitleWait = 2131099691;
+			// aapt resource value: 0x7f06002a
+			public const int TitleWait = 2131099690;
 			
 			// aapt resource value: 0x7f060021
 			public const int TypeWork = 2131099681;
@@ -186,8 +183,8 @@ namespace UnitAnroidPrinterApp
 			// aapt resource value: 0x7f06000c
 			public const int scrollView1 = 2131099660;
 			
-			// aapt resource value: 0x7f06002a
-			public const int text1 = 2131099690;
+			// aapt resource value: 0x7f060029
+			public const int text1 = 2131099689;
 			
 			// aapt resource value: 0x7f060001
 			public const int textView1 = 2131099649;

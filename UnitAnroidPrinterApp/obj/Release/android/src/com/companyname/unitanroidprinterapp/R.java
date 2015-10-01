@@ -16,7 +16,6 @@ public final class R {
     }
     public static final class id {
         public static final int Address=0x7f060019;
-        public static final int Cancel=0x7f060029;
         public static final int CityName=0x7f06001c;
         public static final int ClientName=0x7f06001f;
         public static final int ColorCounter=0x7f060025;
@@ -42,7 +41,7 @@ public final class R {
         public static final int TitleEnterDeviceSerialKey=0x7f06000e;
         public static final int TitleInformationDevice=0x7f060012;
         public static final int TitleMonoCounter=0x7f060022;
-        public static final int TitleWait=0x7f06002b;
+        public static final int TitleWait=0x7f06002a;
         public static final int TypeWork=0x7f060021;
         public static final int enterAddressLayout=0x7f060017;
         public static final int enterCityNameLayout=0x7f06001a;
@@ -56,7 +55,7 @@ public final class R {
         public static final int linearLayout3=0x7f06000b;
         public static final int linearLayout4=0x7f060008;
         public static final int scrollView1=0x7f06000c;
-        public static final int text1=0x7f06002a;
+        public static final int text1=0x7f060029;
         public static final int textView1=0x7f060001;
         public static final int textView2=0x7f060003;
     }

@@ -213,13 +213,6 @@
                     android:id="@+id/Save"
                     style="@style/TextXLarge"
                     android:layout_weight="9" />
-                <Button
-                    android:text="@string/Cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Cancel"
-                    style="@style/TextXLarge"
-                    android:layout_marginTop="10dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

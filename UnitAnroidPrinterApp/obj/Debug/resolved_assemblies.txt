@@ -1,2 +1,8 @@
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\assemblies\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\assemblies\Newtonsoft.Json.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\UnitAnroidPrinterApp.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\Mono.Android.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\mscorlib.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.Core.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.Xml.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.Runtime.Serialization.dll

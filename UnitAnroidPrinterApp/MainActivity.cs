@@ -5,8 +5,6 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -53,8 +51,6 @@ namespace UnitAnroidPrinterApp
 
         private void ViewFillForm(PrinterEntryDB deviceEntry)
 		{
-            _serialKey.Enabled = false;
-
             _informationLayout.Visibility = ViewStates.Visible;
             _enterDispatchLayout.Visibility = ViewStates.Visible;
             _informationDevice.Text = deviceEntry.GetFormatInformation();
@@ -66,38 +62,58 @@ namespace UnitAnroidPrinterApp
             dataIsEmpty.ToLower() == "null" ||
             dataIsEmpty == string.Empty;
 
-            if (!checkIsEmpty(deviceEntry.DeviceStr))
+            if (!checkIsEmpty(deviceEntry.DeviceId))
             {
-                _deviceModel.Text = deviceEntry.DeviceStr;
                 _enterModelLayout.Visibility = ViewStates.Gone;
-            }
-            if (!checkIsEmpty(deviceEntry.AddressStr))
-            {
-                _address.Text = deviceEntry.AddressStr;
                 _enterAddressLayout.Visibility = ViewStates.Gone;
-            }
+                _enterClientNameLayout.Visibility = ViewStates.Gone;
 
-            if (!checkIsEmpty(deviceEntry.DescrStr))
+                _deviceModel.Text = deviceEntry.DeviceStr;
+                _address.Text = deviceEntry.AddressStr;
+                _clientName.Text = deviceEntry.ContractorStr;
+            }
+            else
             {
-                _comment.Text = deviceEntry.DescrStr;
+                if(!checkIsEmpty(deviceEntry.AddressStr))
+                {
+                    _enterAddressLayout.Visibility = ViewStates.Gone;
+                    _address.Text = deviceEntry.AddressStr;
+                }
+                if (!checkIsEmpty(deviceEntry.ContractorStr))
+                {
+                    _enterClientNameLayout.Visibility = ViewStates.Gone;
+                    _clientName.Text = deviceEntry.ContractorStr;
+                }
+                if (!checkIsEmpty(deviceEntry.DeviceStr))
+                {
+                    _enterModelLayout.Visibility = ViewStates.Gone;
+                    _deviceModel.Text = deviceEntry.DeviceStr;
+                }
             }
         }
 
 		private void HandleClickGetInfo(object sender, EventArgs e)
 		{
-			try
+            Cancel();
+            try
 			{
                 using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
                 {
                     _deviceInfoDB = dbConnection.Get<PrinterEntryDB>(
                         x => x.DeviceSerialNum.ToLower() == _serialKey.Text.ToLower());
-                    ViewFillForm(_deviceInfoDB);
                 }
 			}
 			catch(Exception)
             {
-				Toast.MakeText (this, Resource.String.ErrorSerialKey, ToastLength.Long).Show();
-			}
+                _deviceInfoDB = new PrinterEntryDB();
+                _deviceInfoDB.AddressStr = string.Empty;
+                _deviceInfoDB.ContractorStr = string.Empty;
+                _deviceInfoDB.ContractStr = string.Empty;
+                _deviceInfoDB.DescrStr = string.Empty;
+                _deviceInfoDB.DeviceId = string.Empty;
+                _deviceInfoDB.DeviceStr = string.Empty;
+            }
+            ViewFillForm(_deviceInfoDB);
         }
 
         private void HandleClickSaveInfo(object sender, EventArgs e)
@@ -190,6 +206,7 @@ namespace UnitAnroidPrinterApp
             _enterAddressLayout = FindViewById<LinearLayout>(Resource.Id.enterAddressLayout);
             _enterCityNameLayout = FindViewById<LinearLayout>(Resource.Id.enterCityNameLayout);
             _enterClientNameLayout = FindViewById<LinearLayout>(Resource.Id.enterClientNameLayout);
+            _enterCityNameLayout.Visibility = ViewStates.Gone;
 
             _enterDispatchLayout = FindViewById<LinearLayout>(Resource.Id.enterDispatchLayout);
 
@@ -200,8 +217,6 @@ namespace UnitAnroidPrinterApp
 			buttonGetInfo.Click += HandleClickGetInfo;
 			var buttonSaveInfo = FindViewById<Button> (Resource.Id.Save);
 			buttonSaveInfo.Click += HandleClickSaveInfo;
-            var buttonCancel = FindViewById<Button>(Resource.Id.Cancel);
-            buttonCancel.Click += ButtonCancel_Click;
 
             using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterAppLocal))
             {
@@ -209,11 +224,12 @@ namespace UnitAnroidPrinterApp
             }
         }
 
-        private void ButtonCancel_Click(object sender, EventArgs e)
+        private void Cancel()
         {
             _informationLayout.Visibility = ViewStates.Gone;
             _enterModelLayout.Visibility = ViewStates.Visible;
             _enterAddressLayout.Visibility = ViewStates.Visible;
+            _enterClientNameLayout.Visibility = ViewStates.Visible;
 
             _enterDispatchLayout.Visibility = ViewStates.Gone;
 
@@ -224,8 +240,6 @@ namespace UnitAnroidPrinterApp
             _cityName.Text = string.Empty;
             _address.Text = string.Empty;
             _clientName.Text = string.Empty;
-
-            _serialKey.Enabled = true;
         }
 
 		protected override void OnCreate (Bundle bundle)
