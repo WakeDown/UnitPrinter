@@ -44,6 +44,10 @@ namespace UnitAnroidPrinterApp
                 {
                     unitAPIShellAutorizator.RememberMe(account);    
                 }
+                else
+                {
+                    unitAPIShellAutorizator.DontRememberMe();
+                }
                 GoMainActivity();
             }
             else
