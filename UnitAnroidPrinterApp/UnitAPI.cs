@@ -2,18 +2,16 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography;
 
 namespace UnitAnroidPrinterApp
 {
-    class UnitAPI
+    abstract class UnitAPI
     {
         private readonly string _login;
         private readonly string _pass;
         private readonly string _domain;
 
-        public UnitAPI(string login, string pass, string domain)
+        protected UnitAPI(string login, string pass, string domain)
         {
             _login = login;
             _pass = pass;
@@ -23,7 +21,19 @@ namespace UnitAnroidPrinterApp
             _pass = "1qazXSW@";
         }
 
-        private HttpWebRequest _getApiRequest(string url)
+        protected async Task<bool> CheckNeedUpdateAsync(string date)
+        {
+            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/CheckDeviceInfoListIsChanged?lastModifyDate={0}";
+            urlApi = string.Format(urlApi, date);
+
+            string responseStr = await _getApiResponseAsync(_getApiRequest(urlApi));
+            var changed = new { isChanged = true };
+            var needChange = JsonConvert.DeserializeAnonymousType(responseStr, changed);
+
+            return needChange.isChanged;
+        }
+
+        protected HttpWebRequest _getApiRequest(string url)
         {
             ServicePointManager.ServerCertificateValidationCallback =
                 new System.Net.Security.RemoteCertificateValidationCallback(delegate { return true; });
@@ -36,7 +46,7 @@ namespace UnitAnroidPrinterApp
             return requestGetPrinterEntry;
         }
 
-        private HttpWebRequest _getApiRequest(string url, string json)
+        protected HttpWebRequest _getApiRequest(string url, string json)
         {
             ServicePointManager.ServerCertificateValidationCallback =
                 new System.Net.Security.RemoteCertificateValidationCallback(delegate { return true; });
@@ -55,7 +65,7 @@ namespace UnitAnroidPrinterApp
             return requestGetPrinterEntry;
         }
 
-        private string _getApiResponse(HttpWebRequest request)
+        protected string _getApiResponse(HttpWebRequest request)
         {
             using (var response = request.GetResponse())
             {
@@ -77,7 +87,7 @@ namespace UnitAnroidPrinterApp
             }
         }
 
-        public TypeWorkDB[] GetTypesWork()
+        protected TypeWorkDB[] GetTypesWork()
         {
             string url = "http://test.api.unitgroup.ru/data/ServiceMobile/GetPlanActionTypeList";
             string responseStr = _getApiResponse(_getApiRequest(url));
@@ -85,7 +95,7 @@ namespace UnitAnroidPrinterApp
             return typesWork;
         }
 
-        public async Task<TypeWorkDB[]> GetTypesWorkAsync()
+        protected async Task<TypeWorkDB[]> GetTypesWorkAsync()
         {
             string url = "http://test.api.unitgroup.ru/data/ServiceMobile/GetPlanActionTypeList";
             string responseStr = await _getApiResponseAsync(_getApiRequest(url));
@@ -93,7 +103,7 @@ namespace UnitAnroidPrinterApp
             return typesWork;
         }
 
-        public PrinterEntryDB GetPrinterEntry(string serialKey)
+        protected PrinterEntryDB GetPrinterEntry(string serialKey)
         {
             string urlApi = "https://test.api.unitgroup.ru/data/Device/GetInfo?serialNum={0}";
             string urlSerialKey = string.Format(urlApi, serialKey);
@@ -106,9 +116,10 @@ namespace UnitAnroidPrinterApp
             return deviceInfoResult;
         }
 
-        public PrinterEntryDB[] GetAllPrinterEntry()
+        protected PrinterEntryDB[] GetAllPrinterEntry(string date = "")
         {
-            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetDeviceInfoList";
+            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetDeviceInfoList?lastModifyDate={0}";
+            urlApi = string.Format(urlApi, date);
 
             string responseStr = _getApiResponse(_getApiRequest(urlApi));
 
@@ -117,7 +128,7 @@ namespace UnitAnroidPrinterApp
 
         }
 
-        public AccountDB[] GetAllAccount()
+        protected AccountDB[] GetAllAccount()
         {
             string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetMobileUserList";
 
@@ -127,26 +138,17 @@ namespace UnitAnroidPrinterApp
             return deviceInfoResult;
         }
 
-        public async Task<string> GetCheckSumAsync()
+        protected async Task<PrinterEntryDB[]> GetAllPrinterEntryAsync(string date = "")
         {
-            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetDeviceInfoListHash";
+            string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetDeviceInfoList?lastModifyDate={0}";
+            urlApi = string.Format(urlApi, date);
 
             string responseStr = await _getApiResponseAsync(_getApiRequest(urlApi));
-            string checkSum = (string)JsonConvert.DeserializeObject(responseStr);
-            return checkSum;
+            PrinterEntryDB[] deviceInfoResult = JsonConvert.DeserializeObject<PrinterEntryDB[]>(responseStr);
+            return deviceInfoResult;
         }
 
-        public static byte[] CalculateChecksum(object obj)
-        {
-            var binFormatter = new BinaryFormatter();
-            var mStream = new MemoryStream();
-            binFormatter.Serialize(mStream, obj);
-            var array = mStream.ToArray();
-            var hash = MD5.Create().ComputeHash(array);
-            return hash;
-        }
-
-        public async Task<PrinterEntryDB[]> GetAllPrinterEntryAsync()
+        protected async Task<PrinterEntryDB[]> GetAllPrinterEntryAsync()
         {
             string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetDeviceInfoList";
 
@@ -155,7 +157,7 @@ namespace UnitAnroidPrinterApp
             return deviceInfoResult;
         }
 
-        public async Task<AccountDB[]> GetAllAccountAsync()
+        protected async Task<AccountDB[]> GetAllAccountAsync()
         {
             string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/GetMobileUserList";
 
@@ -165,7 +167,7 @@ namespace UnitAnroidPrinterApp
             return deviceInfoResult;
         }
 
-        public string SavePrinterEntry(DispatchDB dispatch)
+        protected string PushPrinterEntry(DispatchDB dispatch)
         {
             string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/SavePlanServiceIssue";
 
@@ -184,7 +186,7 @@ namespace UnitAnroidPrinterApp
             return id.id;
         }
 
-        public async Task<string> SavePrinterEntryAsync(DispatchDB dispatch)
+        protected async Task<string> PushPrinterEntryAsync(DispatchDB dispatch)
         {
             string urlApi = "http://test.api.unitgroup.ru/data/ServiceMobile/SavePlanServiceIssue";
 

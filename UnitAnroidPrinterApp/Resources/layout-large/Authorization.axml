@@ -2,13 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/linearLayout1"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:layout_marginTop="0.0dp"
+        android:layout_marginBottom="0.0dp"
+        android:layout_marginRight="0.0dp"
+        android:gravity="center">
         <TextView
             android:text="@string/AuthEnterName"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -34,18 +40,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/EnterPass"
-            style="@style/TextXLarge" />
+            style="@style/TextXLarge"
+            android:password="true" />
         <Button
             android:text="@string/AuthEnter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/LogInButton"
             style="@style/TextXLarge" />
-        <Button
-            android:text="@string/AuthCreate"
+        <CheckBox
+            android:text="@string/Remember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CreateButton"
-            style="@style/TextXLarge" />
+            android:id="@+id/CheckRemember"
+            android:checked="true"
+            style="@style/TitleTextXLarge" />
     </LinearLayout>
 </LinearLayout>

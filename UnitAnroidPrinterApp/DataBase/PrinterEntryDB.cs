@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using SQLite;
 
 namespace UnitAnroidPrinterApp
 {
@@ -12,7 +13,8 @@ namespace UnitAnroidPrinterApp
         public string AddressStr { get; set; }
         public string DescrStr { get; set; }
         public string DeviceSerialNum { get; set; }
-        public string DeviceId { get; set; }
+        [PrimaryKey]
+        public int DeviceId { get; set; }
 
         public PrinterEntryDB() { }
 
@@ -23,7 +25,7 @@ namespace UnitAnroidPrinterApp
             information.Add(ContractStr);
             information.Add(DeviceStr);
             information.Add(AddressStr);
-            information.Add("id " + DeviceId);
+            information.Add("id " + DeviceId.ToString());
 
             return string.Join(Environment.NewLine, information);
         }

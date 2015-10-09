@@ -9,16 +9,9 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/linearLayout1"
-        android:layout_weight="10" />
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/linearLayout2"
-        android:layout_weight="9">
+        android:layout_weight="9"
+        android:gravity="center">
         <TextView
             android:text="@string/Wait"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -28,12 +21,4 @@
             android:gravity="center"
             style="@style/TitleTextNormal" />
     </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/linearLayout3"
-        android:layout_weight="10" />
 </LinearLayout>

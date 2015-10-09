@@ -1,46 +1,32 @@
-﻿
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using SQLite;
 using System;
-using System.IO;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity (Icon = "@drawable/icon")]		
-	public class AuthorizationActivity : Activity
+    [Activity (Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]		
+    public class AuthorizationActivity : Activity
 	{
 		private EditText _name;
 		private EditText _pass;
-		private string _dbUnitAndroidPrinterApp = Path.Combine (
-			System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal),
-            "dbUnitAndroidPrinterApp.db3");
+        UnitAPIShellAutorizator unitAPIShellAutorizator;
 
-		private void Initialize()
+        private void Initialize()
 		{
 			_name = FindViewById<EditText> (Resource.Id.EnterName);
 			_pass = FindViewById <EditText> (Resource.Id.EnterPass);
 			var buttonLogIn = FindViewById<Button> (Resource.Id.LogInButton);
 			buttonLogIn.Click += ButtonLogIn_Click;
-			var buttonCreate = FindViewById<Button> (Resource.Id.CreateButton);
-			buttonCreate.Click += ButtonCreate_Click;
-            buttonCreate.Visibility = Android.Views.ViewStates.Gone;
+            var login = "mobileUnit_Service";
+            var pass = "1qazXSW@";
+            unitAPIShellAutorizator = new UnitAPIShellAutorizator(login, pass);
+            var remember = unitAPIShellAutorizator.GetRememberAccount();
+            _name.Text = remember.Login;
+            _pass.Text = remember.Password;
         }
 
-		void ButtonCreate_Click (object sender, EventArgs e)
-		{
-            AccountDB account = new AccountDB()
-            { Login = _name.Text, Password = _pass.Text, Sid = "test", CurUserAdSid = null };
-
-            using (var _dataBase = new SQLiteConnection(_dbUnitAndroidPrinterApp))
-            {
-                _dataBase.Insert(account);
-            }
-			Toast.MakeText(this, Resource.String.CompleteCreateEntry, ToastLength.Long).Show();
-		}
-		
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -51,17 +37,17 @@ namespace UnitAnroidPrinterApp
 
         void ButtonLogIn_Click (object sender, EventArgs e)
 		{
-			using(var dataBase = new SQLiteConnection(_dbUnitAndroidPrinterApp))
-			{
-				try
-				{
-                    dataBase.Get<AccountDB>(x => x.Login == _name.Text && x.Password == _pass.Text);
-                    GoMainActivity();
+            AccountDB account = new AccountDB() { CurUserAdSid = string.Empty, Password = _pass.Text, Login = _name.Text, Sid = string.Empty };
+            if(unitAPIShellAutorizator.LogIn(account))
+            {
+                if (FindViewById<CheckBox>(Resource.Id.CheckRemember).Checked)
+                {
+                    unitAPIShellAutorizator.RememberMe(account);    
                 }
-				catch(Exception) {
-					Toast.MakeText (this, Resource.String.ErrorAuth, ToastLength.Long).Show();
-				}
-			}
+                GoMainActivity();
+            }
+            else
+                Toast.MakeText(this, Resource.String.ErrorAuth, ToastLength.Long).Show();
 		}
 
         void GoMainActivity()

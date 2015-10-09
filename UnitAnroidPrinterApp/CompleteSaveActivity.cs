@@ -6,7 +6,7 @@ using System;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity(Icon = "@drawable/icon")]
+    [Activity(Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class CompleteSaveActivity : Activity
     {
         private Button Exit;

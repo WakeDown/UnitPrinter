@@ -63,25 +63,25 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckSum.cs" />
     <Compile Include="CompleteSaveActivity.cs" />
     <Compile Include="DataBase\DeviceInfoResult.cs" />
     <Compile Include="DataBase\DispatchDB.cs" />
+    <Compile Include="DataBase\LastModifyDateDB.cs" />
     <Compile Include="DataBase\PrinterEntryDB.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Model\Dispatch.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Device.cs" />
-    <Compile Include="Model\IDevice.cs" />
-    <Compile Include="Model\Printer.cs" />
     <Compile Include="DataBase\SQLite.cs" />
     <Compile Include="DataBase\SQLiteAsync.cs" />
     <Compile Include="AuthorizationActivity.cs" />
     <Compile Include="DataBase\AccountDB.cs" />
-    <Compile Include="StartActivity.cs" />
     <Compile Include="DataBase\TypeWorDB.cs" />
+    <Compile Include="StartActivity.cs" />
     <Compile Include="UnitAPI.cs" />
+    <Compile Include="UnitAPIShell.cs" />
+    <Compile Include="UnitAPIShellAutorizator.cs" />
+    <Compile Include="UnitAPIShellUpdater.cs" />
+    <Compile Include="UnitAPIShellSaver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -98,11 +98,11 @@
     <AndroidResource Include="Resources\layout-large\Authorization.axml" />
     <AndroidResource Include="Resources\layout-xlarge\Authorization.axml" />
     <AndroidResource Include="Resources\layout-large\CompleteSaveEntry.axml" />
-    <AndroidResource Include="Resources\layout-normal\CompleteSaveEntry.axml" />
     <AndroidResource Include="Resources\layout-xlarge\CompleteSaveEntry.axml" />
-    <AndroidResource Include="Resources\layout-normal\Main.axml" />
+    <AndroidResource Include="Resources\layout-normal\CompleteSaveEntry.axml" />
     <AndroidResource Include="Resources\layout-large\Main.axml" />
     <AndroidResource Include="Resources\layout-xlarge\Main.axml" />
+    <AndroidResource Include="Resources\layout-normal\Main.axml" />
     <AndroidResource Include="Resources\layout-normal\RowSpinner.axml" />
     <AndroidResource Include="Resources\layout-large\RowSpinner.axml" />
     <AndroidResource Include="Resources\layout-xlarge\RowSpinner.axml" />
