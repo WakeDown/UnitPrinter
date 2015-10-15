@@ -1,5 +1,7 @@
 using System;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -20,15 +22,19 @@ namespace UnitAnroidPrinterApp
             UnitAPIShellUpdater unitAPIShellUpdater = new UnitAPIShellUpdater(login, pass);
             if (unitAPIShellUpdater.CheckEmptyDB())
             {
+                StartConnection:
                 try
                 {
-                    m_titleWait.Text = Resources.GetString(Resource.String.Wait);
+                    RunOnUiThread(() =>
+                        m_titleWait.Text = Resources.GetString(Resource.String.Wait));
                     await unitAPIShellUpdater.UpdateAsync();
                 }
                 catch (WebException)
                 {
-                    m_titleWait.Text = Resources.GetString(Resource.String.NoConnectionServer);
-                    return;
+                    RunOnUiThread(() =>
+                        m_titleWait.Text = Resources.GetString(Resource.String.NoConnectionServer));
+                    await Task.Delay(3 * 1000);
+                    goto StartConnection;
                 }
             }
             callback();
