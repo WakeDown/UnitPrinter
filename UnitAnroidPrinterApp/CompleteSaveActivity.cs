@@ -9,8 +9,8 @@ namespace UnitAnroidPrinterApp
     [Activity(Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class CompleteSaveActivity : Activity
     {
-        private Button Exit;
-        private Button CreateAnother;
+        private Button m_exit;
+        private Button m_createAnother;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -22,11 +22,11 @@ namespace UnitAnroidPrinterApp
 
         private void Initialize()
         {
-            Exit = FindViewById<Button>(Resource.Id.Exit);
-            Exit.Visibility = Android.Views.ViewStates.Invisible;
-            Exit.Click += Exit_Click;
-            CreateAnother = FindViewById<Button>(Resource.Id.CreateAnother);
-            CreateAnother.Click += CreateAnother_Click;
+            m_exit = FindViewById<Button>(Resource.Id.Exit);
+            m_exit.Visibility = Android.Views.ViewStates.Invisible;
+            m_exit.Click += Exit_Click;
+            m_createAnother = FindViewById<Button>(Resource.Id.CreateAnother);
+            m_createAnother.Click += CreateAnother_Click;
         }
 
         void GoMainActivity()

@@ -9,22 +9,28 @@ namespace UnitAnroidPrinterApp
     [Activity (Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]		
     public class AuthorizationActivity : Activity
 	{
-		private EditText _name;
-		private EditText _pass;
-        UnitAPIShellAutorizator unitAPIShellAutorizator;
+		private EditText m_name;
+		private EditText m_pass;
+        UnitAPIShellAuthorizator m_unitAPIShellAutorizator;
 
         private void Initialize()
 		{
-			_name = FindViewById<EditText> (Resource.Id.EnterName);
-			_pass = FindViewById <EditText> (Resource.Id.EnterPass);
+			m_name = FindViewById<EditText> (Resource.Id.EnterName);
+			m_pass = FindViewById <EditText> (Resource.Id.EnterPass);
 			var buttonLogIn = FindViewById<Button> (Resource.Id.LogInButton);
 			buttonLogIn.Click += ButtonLogIn_Click;
             var login = "mobileUnit_Service";
             var pass = "1qazXSW@";
-            unitAPIShellAutorizator = new UnitAPIShellAutorizator(login, pass);
-            var remember = unitAPIShellAutorizator.GetRememberAccount();
-            _name.Text = remember.Login;
-            _pass.Text = remember.Password;
+            m_unitAPIShellAutorizator = new UnitAPIShellAuthorizator(login, pass);
+            AccountDB remember = m_unitAPIShellAutorizator.GetRememberAccount();
+            if (remember != null)
+            {
+                m_name.Text = remember.Login;
+                m_pass.Text = remember.Password;
+                AccountDB account = new AccountDB() { CurUserAdSid = string.Empty, Password = m_pass.Text, Login = m_name.Text, Sid = string.Empty };
+                if (m_unitAPIShellAutorizator.LogIn(account))
+                    GoMainActivity();
+            }
         }
 
 		protected override void OnCreate (Bundle bundle)
@@ -37,16 +43,12 @@ namespace UnitAnroidPrinterApp
 
         void ButtonLogIn_Click (object sender, EventArgs e)
 		{
-            AccountDB account = new AccountDB() { CurUserAdSid = string.Empty, Password = _pass.Text, Login = _name.Text, Sid = string.Empty };
-            if(unitAPIShellAutorizator.LogIn(account))
+            AccountDB account = new AccountDB() { CurUserAdSid = string.Empty, Password = m_pass.Text, Login = m_name.Text, Sid = string.Empty };
+            if(m_unitAPIShellAutorizator.LogIn(account))
             {
                 if (FindViewById<CheckBox>(Resource.Id.CheckRemember).Checked)
                 {
-                    unitAPIShellAutorizator.RememberMe(account);    
-                }
-                else
-                {
-                    unitAPIShellAutorizator.DontRememberMe();
+                    m_unitAPIShellAutorizator.RememberMe(account);    
                 }
                 GoMainActivity();
             }
@@ -57,8 +59,8 @@ namespace UnitAnroidPrinterApp
         void GoMainActivity()
         {
             var activity2 = new Intent(this, typeof(MainActivity));
-            activity2.PutExtra("Name", _name.Text);
-            activity2.PutExtra("Pass", _pass.Text);
+            activity2.PutExtra("Name", m_name.Text);
+            activity2.PutExtra("Pass", m_pass.Text);
             StartActivity(activity2);
         }
 	}

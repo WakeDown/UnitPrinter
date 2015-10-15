@@ -10,6 +10,7 @@ namespace UnitAnroidPrinterApp
     [Activity(MainLauncher = true, Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class StartActivity : Activity
     {
+        private TextView m_titleWait;
         private async void Initialize(Action callback)
         {
             var login = "mobileUnit_Service";
@@ -21,11 +22,12 @@ namespace UnitAnroidPrinterApp
             {
                 try
                 {
+                    m_titleWait.Text = Resources.GetString(Resource.String.Wait);
                     await unitAPIShellUpdater.UpdateAsync();
                 }
                 catch (WebException)
                 {
-                    FindViewById<TextView>(Resource.Id.TitleWait).Text = Resources.GetString(Resource.String.NoConnectionServer);
+                    m_titleWait.Text = Resources.GetString(Resource.String.NoConnectionServer);
                     return;
                 }
             }
@@ -36,7 +38,8 @@ namespace UnitAnroidPrinterApp
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Start);
-            FindViewById<TextView>(Resource.Id.TitleWait).Text = Resources.GetString(Resource.String.Wait);
+            m_titleWait = FindViewById<TextView>(Resource.Id.TitleWait);
+            m_titleWait.Text = Resources.GetString(Resource.String.Wait);
 
             Initialize(() => GoToAutorizationActivity());
         }

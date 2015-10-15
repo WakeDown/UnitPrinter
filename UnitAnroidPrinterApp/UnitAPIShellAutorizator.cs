@@ -3,9 +3,9 @@ using SQLite;
 
 namespace UnitAnroidPrinterApp
 {
-    class UnitAPIShellAutorizator : UnitAPIShell
+    class UnitAPIShellAuthorizator : UnitAPIShell
     {
-        public UnitAPIShellAutorizator(string login, string pass) : base(login, pass) { }
+        public UnitAPIShellAuthorizator(string login, string pass) : base(login, pass) { }
 
         public void RememberMe(AccountDB account)
         {
@@ -41,13 +41,7 @@ namespace UnitAnroidPrinterApp
             }
             catch(Exception)
             {
-                return new AccountDB()
-                {
-                    CurUserAdSid = string.Empty,
-                    Sid = string.Empty,
-                    Login = string.Empty,
-                    Password = string.Empty
-                };
+                return null;
             }
         }
 

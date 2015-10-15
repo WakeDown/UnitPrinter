@@ -123,9 +123,6 @@ C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\l
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-large\completesaveentry.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-xlarge\completesaveentry.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-normal\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-large\main.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-xlarge\main.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-normal\main.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-normal\rowspinner.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-large\rowspinner.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-xlarge\rowspinner.xml

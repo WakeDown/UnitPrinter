@@ -8,9 +8,9 @@ namespace UnitAnroidPrinterApp
     {
         public UnitAPIShellUpdater(string login, string pass) : base(login, pass) { }
 
-        public async Task<bool> CheckNeedUpdateAsync(DateTime date)
+        public async Task<bool> CheckNeedUpdateAsync()
         {
-            var dateLastExcharge = date.AddDays(1).ToString("yyyy-MM-dd");
+            var dateLastExcharge = GetDateLastUpdate().ToString("yyyy-MM-ddTHH:mm:ss");
             return await base.CheckNeedUpdateAsync(dateLastExcharge);
         }
 
@@ -18,10 +18,10 @@ namespace UnitAnroidPrinterApp
         {
             using (var dbConnection = new SQLiteConnection(_dbUnitAndroidPrinterApp))
             {
-                DateTime dateTime = GetDateLastUpdate().AddDays(1);
+                DateTime dateTime = GetDateLastUpdate();
 
                 TypeWorkDB[] typesWork = await GetTypesWorkAsync();
-                PrinterEntryDB[] printerEntrys = await GetAllPrinterEntryAsync(dateTime.ToString("yyyy-MM-dd"));
+                PrinterEntryDB[] printerEntrys = await GetAllPrinterEntryAsync(dateTime.ToString("yyyy-MM-ddTHH:mm:ss"));
                 AccountDB[] accounts = await GetAllAccountAsync();
 
                 dbConnection.RunInTransaction(() =>

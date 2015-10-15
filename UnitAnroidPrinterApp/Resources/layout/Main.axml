@@ -16,63 +16,85 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/NoServerConnectionLayout">
-                <TextView
-                    android:text="@string/NoConnectionServer"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/NoServerConnect"
-                    style="@style/TextNormal"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/ChangeLayout"
+                android:id="@+id/linearLayout6"
                 android:layout_weight="100"
                 android:layout_marginBottom="20dp">
-                <TextView
-                    android:text="@string/DateLastExchange"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/TitleDateLastExcharge"
-                    style="@style/TitleTextNormal"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-                <TextView
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/DateLastExcharge"
-                    style="@style/TextNormal" />
                 <LinearLayout
                     android:orientation="vertical"
+                    android:id="@+id/linearLayout5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/DownloadChangeLayout">
-                    <TextView
-                        android:text="@string/ThereСhange"
-                        android:id="@+id/textView1"
-                        style="@style/TitleTextNormal"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:gravity="center"
+                    android:layout_weight="40">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-                    <Button
-                        android:text="@string/Download"
-                        android:id="@+id/DownloadButton"
-                        style="@style/TextNormal"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/NoServerConnectionLayout"
+                        android:layout_weight="50">
+                        <TextView
+                            android:text="@string/NoConnectionServer"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/NoServerConnect"
+                            style="@style/TitleTextNormal"
+                            android:gravity="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ChangeLayout"
+                        android:layout_weight="50">
+                        <TextView
+                            android:text="@string/DateLastExchange"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/TitleDateLastExcharge"
+                            style="@style/TitleTextNormal"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/DateLastExcharge"
+                            style="@style/TextNormal" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/DownloadChangeLayout">
+                            <TextView
+                                android:text="@string/ThereСhange"
+                                android:id="@+id/textView1"
+                                style="@style/TitleTextNormal"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                            <Button
+                                android:text="@string/Download"
+                                android:id="@+id/DownloadButton"
+                                style="@style/TextNormal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
+                <Button
+                    android:text="@string/Exit"
+                    android:id="@+id/ExitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    style="@style/TextNormal" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
