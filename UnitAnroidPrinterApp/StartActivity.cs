@@ -1,6 +1,5 @@
 using System;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -38,7 +37,14 @@ namespace UnitAnroidPrinterApp
                 }
             }
             callback();
+            //this.OnBackButtonPressed();
         }
+
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    DependencyService.Get<IAndroidMethods>().CloseApp();
+        //    return base.OnBackButtonPressed();
+        //}
 
         protected override void OnCreate(Bundle bundle)
         {
