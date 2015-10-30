@@ -37,14 +37,17 @@ namespace UnitAnroidPrinterApp
                 }
             }
             callback();
-            //this.OnBackButtonPressed();
         }
 
-        //protected override bool OnBackButtonPressed()
-        //{
-        //    DependencyService.Get<IAndroidMethods>().CloseApp();
-        //    return base.OnBackButtonPressed();
-        //}
+        public override void OnBackPressed()
+        {
+            Intent intent = new Intent(Intent.ActionMain);
+            intent.AddCategory(Intent.CategoryHome);
+            intent.SetFlags(ActivityFlags.ClearTop);
+            StartActivity(intent);
+            Finish();
+            Process.KillProcess(Process.MyPid());
+        }
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -58,8 +61,8 @@ namespace UnitAnroidPrinterApp
 
         private void GoToAutorizationActivity()
         {
-            var activity2 = new Intent(this, typeof(AuthorizationActivity));
-            StartActivity(activity2);
+            var intent = new Intent(this, typeof(AuthorizationActivity));
+            StartActivity(intent);
         }
     }
 }

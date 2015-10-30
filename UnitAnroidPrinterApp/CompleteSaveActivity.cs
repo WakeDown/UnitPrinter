@@ -20,6 +20,16 @@ namespace UnitAnroidPrinterApp
             Initialize();
         }
 
+        public override void OnBackPressed()
+        {
+            Intent intent = new Intent(Intent.ActionMain);
+            intent.AddCategory(Intent.CategoryHome);
+            intent.SetFlags(ActivityFlags.ClearTop);
+            StartActivity(intent);
+            Finish();
+            Process.KillProcess(Process.MyPid());
+        }
+
         private void Initialize()
         {
             m_exit = FindViewById<Button>(Resource.Id.Exit);

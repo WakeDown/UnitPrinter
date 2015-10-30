@@ -129,3 +129,11 @@ C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\l
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-normal\start.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-large\start.xml
 C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-xlarge\start.xml
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Release\Xamarin.Android.Support.Design.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Release\Xamarin.Android.Support.v4.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Release\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Release\Xamarin.Android.Support.v7.CardView.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Release\Xamarin.Android.Support.v7.MediaRouter.dll
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-normal\main.xml
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-large\main.xml
+C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Release\res\layout-xlarge\main.xml

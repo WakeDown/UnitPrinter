@@ -35,6 +35,16 @@ namespace UnitAnroidPrinterApp
             }
         }
 
+        public override void OnBackPressed()
+        {
+            Intent intent = new Intent(Intent.ActionMain);
+            intent.AddCategory(Intent.CategoryHome);
+            intent.AddFlags(ActivityFlags.ClearTop);
+            StartActivity(intent);
+            Finish();
+            Process.KillProcess(Process.MyPid());
+        }
+
         public override bool OnTouchEvent(MotionEvent e)
         {
             InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
@@ -67,10 +77,10 @@ namespace UnitAnroidPrinterApp
 
         void GoMainActivity()
         {
-            var activity2 = new Intent(this, typeof(MainActivity));
-            activity2.PutExtra("Name", m_name.Text);
-            activity2.PutExtra("Pass", m_pass.Text);
-            StartActivity(activity2);
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("Name", m_name.Text);
+            intent.PutExtra("Pass", m_pass.Text);
+            StartActivity(intent);
         }
     }
 }

@@ -172,6 +172,16 @@ namespace UnitAnroidPrinterApp
             FindViewById<LinearLayout>(Resource.Id.linearLayout4).Touch += Element_Touch;
         }
 
+        public override void OnBackPressed()
+        {
+            Intent intent = new Intent(Intent.ActionMain);
+            intent.AddCategory(Intent.CategoryHome);
+            intent.SetFlags(ActivityFlags.ClearTop);
+            StartActivity(intent);
+            Finish();
+            Process.KillProcess(Process.MyPid());
+        }
+
         private void InitializeButton()
         {
             Button buttonGetInfo = FindViewById<Button>(Resource.Id.GetInfoDevice);
@@ -338,16 +348,16 @@ namespace UnitAnroidPrinterApp
 
         void GoCompleteSaveEntryActivity()
         {
-            var activity2 = new Intent(this, typeof(CompleteSaveActivity));
-            activity2.PutExtra("Name", mLogin);
-            activity2.PutExtra("Pass", mPass);
-            StartActivity(activity2);
+            var intent = new Intent(this, typeof(CompleteSaveActivity));
+            intent.PutExtra("Name", mLogin);
+            intent.PutExtra("Pass", mPass);
+            StartActivity(intent);
         }
 
         void GoAuthorizationActivity()
         {
-            var activity2 = new Intent(this, typeof(AuthorizationActivity));
-            StartActivity(activity2);
+            var intent = new Intent(this, typeof(AuthorizationActivity));
+            StartActivity(intent);
         }
     }
 }
