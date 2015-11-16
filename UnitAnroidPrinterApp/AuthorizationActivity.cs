@@ -8,7 +8,7 @@ using Android.Views;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity(Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
+    [Activity(Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class AuthorizationActivity : Activity
     {
         private EditText m_name;

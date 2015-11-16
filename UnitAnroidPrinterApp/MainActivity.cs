@@ -14,7 +14,7 @@ using Android.Views.InputMethods;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity(Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
+    [Activity(Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class MainActivity : Activity
     {
         private string mLogin;

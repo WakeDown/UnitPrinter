@@ -81,11 +81,6 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		"UnitAnroidPrinterApp.dll",
 		"Newtonsoft.Json.dll",
-		"Xamarin.Android.Support.Design.dll",
-		"Xamarin.Android.Support.v4.dll",
-		"Xamarin.Android.Support.v7.AppCompat.dll",
-		"Xamarin.Android.Support.v7.CardView.dll",
-		"Xamarin.Android.Support.v7.MediaRouter.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

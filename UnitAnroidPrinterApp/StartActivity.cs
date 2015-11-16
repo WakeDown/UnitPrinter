@@ -8,7 +8,7 @@ using Android.Widget;
 
 namespace UnitAnroidPrinterApp
 {
-    [Activity(MainLauncher = true, Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
+    [Activity(MainLauncher = true, Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class StartActivity : Activity
     {
         private TextView m_titleWait;

@@ -1,216 +1,37 @@
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\main.xml
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large\main.xml
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-C:\Users\Алексей\Desktop\UnitAnroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.csprojResolveAssemblyReference.cache
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large-port\main.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large-land\main.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge-port\main.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge-land\main.xml
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-C:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\authorization.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-normal-land\authorization.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-normal-port\authorization.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large\authorization.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\authorization.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large-port\main.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large-land\main.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\main.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\rowspinner.xml
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.csprojResolveAssemblyReference.cache
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-large\main.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge-port\main.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge-land\main.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge-port\rowspinner.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\authorization.xml
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-C:\Users\Alexey\Downloads\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\authorization.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.csprojResolveAssemblyReference.cache
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\completesaveentry.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\layout\start.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values-ru\strings.xml
-D:\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\res\values-ru\textstyle.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.csprojResolveAssemblyReference.cache
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout\start.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\authorization.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-large\authorization.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\authorization.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-large\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-large\main.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\main.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\rowspinner.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-large\rowspinner.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\rowspinner.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\start.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-large\start.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\start.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\layout\authorization.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\values-ru\strings.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\res\values-ru\textstyle.xml
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-C:\Users\Alexey\Source\Repos\UnitPrinter\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.csprojResolveAssemblyReference.cache
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\start.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\drawable-hdpi\icon.png
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\drawable-mdpi\icon.png
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\drawable-xhdpi\icon.png
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxhdpi\icon.png
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\drawable-xxxhdpi\icon.png
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\authorization.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values-ru\strings.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values-ru\textstyle.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\authorization.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\authorization.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\authorization.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\completesaveentry.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\rowspinner.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\rowspinner.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\rowspinner.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\start.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\start.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\start.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Xamarin.Android.Support.Design.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Xamarin.Android.Support.v4.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Xamarin.Android.Support.v7.CardView.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Xamarin.Android.Support.v7.MediaRouter.dll
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\main.xml
-C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\main.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\UnitAnroidPrinterApp.pdb
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp.apk
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\com.companyname.unitanroidprinterapp-Signed.apk
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.csprojResolveAssemblyReference.cache
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\UnitAnroidPrinterApp.pdb
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\bin\com.companyname.unitanroidprinterapp.apk
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\completesaveentry.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\start.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\authorization.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\authorization.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\authorization.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\completesaveentry.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\completesaveentry.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\completesaveentry.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\rowspinner.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\rowspinner.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\rowspinner.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\start.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\start.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\start.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-normal\main.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-large\main.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout-xlarge\main.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values\strings.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values\textstyle.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\rowspinner.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\main.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\layout\authorization.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values-ru\strings.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\values-ru\textstyle.xml
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\R.cs.flag
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\uploadflags.txt
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\res\drawable\icon.png
