@@ -1,170 +1,87 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
-using System.Net;
-using System.IO;
-using Newtonsoft.Json;
-using SQLite;
-using Android.Net;
+using System;
+using Android.Views.InputMethods;
+using Android.Views;
 
 namespace UnitAnroidPrinterApp
 {
-	[Activity (Label = "AuthorizationActivity", MainLauncher = true, Icon = "@drawable/icon")]		
-	public class AuthorizationActivity : Activity
-	{
-		private EditText Name;
-		private EditText Pass;
-		private string _urlApi;
-		private string _dbAccountLocal = Path.Combine (
-			System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal),
-			"dbAccountLocal.db3");
-		private string _dbAccountGlobal = Path.Combine (
-			System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal),
-			"dbAccountGlobal.db3");
+    [Activity(Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
+    public class AuthorizationActivity : Activity
+    {
+        private EditText m_name;
+        private EditText m_pass;
+        UnitAPIShellAuthorizator m_unitAPIShellAutorizator;
 
-		private void Initialize()
-		{
-			Name = FindViewById<EditText> (Resource.Id.EnterName);
-			Pass = FindViewById <EditText> (Resource.Id.EnterPass);
-			var buttonLogIn = FindViewById<Button> (Resource.Id.LogInButton);
-			buttonLogIn.Click += ButtonLogIn_Click;
-			var buttonCreate = FindViewById<Button> (Resource.Id.CreateButton);
-			buttonCreate.Click += ButtonCreate_Click;
-			using (var dataBase = new SQLiteConnection (_dbAccountGlobal)) {
-				dataBase.CreateTable<AccountDB> ();
-			}
-			using (var dataBase = new SQLiteConnection (_dbAccountLocal)) {
-				dataBase.CreateTable<AccountDB> ();
-			}
-			_urlApi = Resources.GetString (Resource.String.URLApi);
-		}
+        private void Initialize()
+        {
+            m_name = FindViewById<EditText>(Resource.Id.EnterName);
+            m_pass = FindViewById<EditText>(Resource.Id.EnterPass);
+            var buttonLogIn = FindViewById<Button>(Resource.Id.LogInButton);
+            buttonLogIn.Click += ButtonLogIn_Click;
+            var login = "mobileUnit_Service";
+            var pass = "1qazXSW@";
+            m_unitAPIShellAutorizator = new UnitAPIShellAuthorizator(login, pass);
+            AccountDB remember = m_unitAPIShellAutorizator.GetRememberAccount();
+            if (remember != null)
+            {
+                m_name.Text = remember.Login;
+                m_pass.Text = remember.Password;
+                AccountDB account = new AccountDB() { CurUserAdSid = string.Empty, Password = m_pass.Text, Login = m_name.Text, Sid = string.Empty };
+                if (m_unitAPIShellAutorizator.LogIn(account))
+                    GoMainActivity();
+            }
+        }
 
-		void ButtonCreate_Click (object sender, EventArgs e)
-		{
-			try
-			{
-				var httpRequest = (HttpWebRequest)WebRequest.Create(_urlApi);
-				using(var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
-				{
-					string jsonObj = JsonConvert.SerializeObject(new {Name = Name.Text, Pass = Pass.Text});
-					streamWriter.WriteLine(jsonObj);
-				}
-				using(var httpResponse = httpRequest.GetResponse())
-				{
-					using(var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-					{
-						string strResponse = streamReader.ReadToEnd();
-						if(strResponse == "OK")
-							Toast.MakeText(this, Resource.String.CompleteCreateEntry, ToastLength.Long).Show();
-						else
-							Toast.MakeText(this, Resource.String.ErrorCreateEntry, ToastLength.Long).Show();
-					}
-				}
-			}
-			catch(Exception) {
-				var account = new AccountDB (Name.Text, Pass.Text);
-				using (var _dataBase = new SQLiteConnection (_dbAccountLocal)) {
-					_dataBase.Insert (account);
-				}
-				using (var _dataBase = new SQLiteConnection (_dbAccountGlobal)) {
-					_dataBase.Insert (account);
-				}
-				Toast.MakeText(this, Resource.String.CompleteCreateEntry, ToastLength.Long).Show();
-			}
-		}
+        public override void OnBackPressed()
+        {
+            Intent intent = new Intent(Intent.ActionMain);
+            intent.AddCategory(Intent.CategoryHome);
+            intent.AddFlags(ActivityFlags.ClearTop);
+            StartActivity(intent);
+            Finish();
+            Process.KillProcess(Process.MyPid());
+        }
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
-			SetContentView (Resource.Layout.Authorization);
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+            imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
+            return true;
+        }
 
-			Initialize ();
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Authorization);
 
-//			var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
-//			var activeConnection = connectivityManager.ActiveNetworkInfo;
-//			if ((activeConnection != null)  && activeConnection.IsConnected)
-//			{
-//				try{
-//					using (var dataBase = new SQLiteConnection (_dbAccountLocal)) {
-//						var dispatchInfoDBAll = dataBase.Table<DispatchPrinterInfoDB> ().ToArray();
-//						string jsonObj = JsonConvert.SerializeObject(dispatchInfoDBAll);
-//						HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_urlApi);
-//						using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
-//						{
-//							streamWriter.WriteLine(jsonObj);
-//						}
-//						request.Accept = "Application/Json";
-//						request.Method = "Post";
-//						using(var responseInfo = request.GetResponse()) { }
-//
-//						dataBase.DeleteAll<DispatchPrinterInfoDB>();
-//					}
-//				}
-//				catch(Exception) {
-//				}
-//
-//				using(var dataBase = new SQLiteConnection(_dbAccountGlobal)) {
-//					//закачать всю базу с сервера
-//				}
-//			}
-		}
+            Initialize();
+        }
 
-		void ButtonLogIn_Click (object sender, EventArgs e)
-		{
-			try
-			{
-				HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(_urlApi);
-				using(var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
-				{
-					string jsonObj = JsonConvert.SerializeObject(new AccountDB(Name.Text, Pass.Text));
-					streamWriter.WriteLine(jsonObj);
-				}
-				using(var httpResponse = httpRequest.GetResponse())
-				{
-					using(var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-					{
-						string strResponse = streamReader.ReadToEnd();
-						if (strResponse == "OK")
-						{
-							var activity2 = new Intent (this, typeof(MainActivity));
-							activity2.PutExtra ("Name", Name.Text);
-							activity2.PutExtra ("Pass", Pass.Text);
-							StartActivity (activity2);
-						}
-						else
-							Toast.MakeText (this, Resource.String.ErrorAuth, ToastLength.Long).Show();
-					}
-				}
-			}
-			catch(Exception)
-			{
-				using(var dataBase = new SQLiteConnection(_dbAccountGlobal))
-				{
-					try
-					{
-						var account = dataBase.Get<AccountDB> (x => x.Name == Name.Text && x.Pass == Pass.Text);
-						if (account != null) {
-							var activity2 = new Intent (this, typeof(MainActivity));
-							activity2.PutExtra ("Name", Name.Text);
-							activity2.PutExtra ("Pass", Pass.Text);
-							StartActivity (activity2);
-						}
-					}
-					catch(Exception) {
-						Toast.MakeText (this, Resource.String.ErrorAuth, ToastLength.Long).Show();
-					}
-				}
-			}
-		}
-	}
+        void ButtonLogIn_Click(object sender, EventArgs e)
+        {
+            AccountDB account = new AccountDB() { CurUserAdSid = string.Empty, Password = m_pass.Text, Login = m_name.Text, Sid = string.Empty };
+            if (m_unitAPIShellAutorizator.LogIn(account))
+            {
+                if (FindViewById<CheckBox>(Resource.Id.CheckRemember).Checked)
+                {
+                    m_unitAPIShellAutorizator.RememberMe(account);
+                }
+                GoMainActivity();
+            }
+            else
+                Toast.MakeText(this, Resource.String.ErrorAuth, ToastLength.Long).Show();
+        }
+
+        void GoMainActivity()
+        {
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("Name", m_name.Text);
+            intent.PutExtra("Pass", m_pass.Text);
+            StartActivity(intent);
+        }
+    }
 }
 

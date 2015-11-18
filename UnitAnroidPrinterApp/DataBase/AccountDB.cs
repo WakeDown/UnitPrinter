@@ -1,23 +1,14 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 
 namespace UnitAnroidPrinterApp
 {
-	[Table("Account")]
-	public class AccountDB
+    public class AccountDB
 	{
-		[MaxLength(100)]
-		public string Name{ get; set; }
-		[MaxLength(100)]
-		public string Pass{ get; set; }
-
-		public AccountDB(string name, string pass)
-		{
-			Name = name;
-			Pass = pass;
-		}
-
-		public AccountDB(){}
+        [PrimaryKey]
+        public string Sid { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string CurUserAdSid { get; set; }
 	}
 }
 

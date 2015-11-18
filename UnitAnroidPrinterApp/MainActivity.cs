@@ -1,280 +1,365 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Newtonsoft.Json;
 using SQLite;
 using System;
-using System.Linq;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Net;
 using Android.Net;
+using Android.Views.InputMethods;
 
 namespace UnitAnroidPrinterApp
 {
-	[Activity (Label = "UnitAnroidPrinterApp", Icon = "@drawable/icon")]
-	public class MainActivity : Activity
-	{
-		private string _urlApi;
-		private string _name;
-		private string _pass;
+    [Activity(Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
+    public class MainActivity : Activity
+    {
+        private string mLogin;
+        private string mPass;
 
-		private EditText _serialKey;
+        private Spinner mSpinner;
+        private TextView mDateLastExcharge;
+        private EditText mSerialKey;
+        private EditText mDeviceModel;
+        private EditText mAddress;
+        private EditText mClientName;
+        private EditText mMonoCounter;
+        private EditText mColorCounter;
+        private EditText mComment;
 
-		private TextView _nameContrahens;
-		private TextView _numberArgreement;
-		private TextView _periodContract;
-		private TextView _addressMachine;
+        private LinearLayout mInformationLayout;
+        private LinearLayout mInformationDeviceLayout;
+        private LinearLayout mEnterDataLayout;
+        private LinearLayout mEnterDispatchLayout;
+        private LinearLayout mNoServerConnectionLayout;
+        private LinearLayout mChangeLayout;
+        private LinearLayout mDownloadChangeLayout;
 
-		private EditText _model;
-		private EditText _city;
-		private EditText _address;
-		private EditText _contrahens;
+        private string mDBUnitAndroidPrinterApp = Path.Combine(
+            System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
+            "dbUnitAndroidPrinterApp.db3");
+        private string mDBUnitAndroidPrinterAppCurrent = Path.Combine(
+            System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
+            "dbUnitAndroidPrinterAppCurrent.db3");
 
-        private Spinner _spinner;
-        private EditText _counterBlackAndWhite;
-        private EditText _counterColor;
-        private EditText _comment;
+        private UnitAPIShellSaver m_unitAPIShellSaver;
+        private UnitAPIShellUpdater m_unitAPIShellUpdater;
+        private PrinterEntryDB m_deviceInfoDB;
 
-		private LinearLayout _layoutMachine;
-		private LinearLayout _layoutAgreement;
-		private LinearLayout _layoutBid;
+        private void ViewFillForm(PrinterEntryDB deviceEntry)
+        {
+            ClearFormInformation();
+            mInformationLayout.Visibility = ViewStates.Visible;
+            mEnterDispatchLayout.Visibility = ViewStates.Visible;
 
-		private string _dbPathLocal = Path.Combine (
-			System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal),
-			"dbDispatchInfoLocal.db3");
-		private string _dbPathGlobal = Path.Combine (
-			System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal),
-			"dbDispatchInfoGlobal.db3");
+            var informationDevice = FindViewById<TextView>(Resource.Id.InformationDevice);
+            informationDevice.Text = deviceEntry.GetFormatInformation();
 
-		private void ViewFillForm(DispatchPrinterInfoDB deviceInfoDB)
-		{
-			_layoutAgreement.Visibility = ViewStates.Visible;
-			_layoutBid.Visibility = ViewStates.Visible;
+            if (deviceEntry.DeviceId == -1)
+            {
+                mInformationDeviceLayout.Visibility = ViewStates.Gone;
+                mEnterDataLayout.Visibility = ViewStates.Visible;
+            }
+            else
+            {
+                mInformationDeviceLayout.Visibility = ViewStates.Visible;
+                mEnterDataLayout.Visibility = ViewStates.Gone;
 
-			_serialKey.Enabled = false;
+                mDeviceModel.Text = deviceEntry.DeviceStr;
+                mAddress.Text = deviceEntry.AddressStr;
+                mClientName.Text = deviceEntry.ContractorStr;
+            }
+        }
 
-			_nameContrahens.Text = deviceInfoDB.NameContrahens;
-			_numberArgreement.Text = deviceInfoDB.NumberAgreement;
-			_periodContract.Text = deviceInfoDB.PeriodContract;
-			_addressMachine.Text = deviceInfoDB.AddressMachine;
+        private void HandleClickGetInfo(object sender, EventArgs e)
+        {
+            HideKeyboard();
+            try
+            {
+                using (var dbConnection = new SQLiteConnection(mDBUnitAndroidPrinterApp))
+                {
+                    m_deviceInfoDB = dbConnection.Get<PrinterEntryDB>(
+                        x => x.DeviceSerialNum.ToLower() == mSerialKey.Text.ToLower());
+                }
+            }
+            catch (Exception)
+            {
+                m_deviceInfoDB = new PrinterEntryDB()
+                {
+                    AddressStr = string.Empty,
+                    ContractorStr = string.Empty,
+                    ContractStr = string.Empty,
+                    DescrStr = string.Empty,
+                    DeviceId = -1,
+                    DeviceSerialNum = string.Empty,
+                    DeviceStr = string.Empty
+                };
+            }
+            ViewFillForm(m_deviceInfoDB);
+        }
 
-			_model.Text = deviceInfoDB.Model;
-			_city.Text = deviceInfoDB.City;
-			_address.Text = deviceInfoDB.Address;
-			_contrahens.Text = deviceInfoDB.Contrahens;
+        private void HandleClickSaveInfo(object sender, EventArgs e)
+        {
+            HideKeyboard();
+            TypeWorkDB typeWork;
+            string specialistSid;
+            using (var dbConnection = new SQLiteConnection(mDBUnitAndroidPrinterApp))
+            {
+                string selectTypeWork = mSpinner.SelectedItem.ToString();
+                typeWork = dbConnection.Get<TypeWorkDB>(x => x.Name == selectTypeWork);
 
-			if (deviceInfoDB.Model == string.Empty || deviceInfoDB.City == string.Empty ||
-				deviceInfoDB.Address == string.Empty || deviceInfoDB.Contrahens == string.Empty)
-				_layoutMachine.Visibility = ViewStates.Visible;
-		}
+                specialistSid = dbConnection.Get<AccountDB>(x => x.Login == mLogin).Sid;
+            }
+            DispatchDB dispatch = new DispatchDB()
+            {
+                DeviceSerialNum = mSerialKey.Text,
+                Address = mAddress.Text,
+                ClientName = mClientName.Text,
+                CounterColor = mColorCounter.Text,
+                CounterMono = mMonoCounter.Text,
+                DateCreate = DateTime.Now,
+                Descr = mComment.Text,
+                DeviceModel = mDeviceModel.Text,
+                CityName = string.Empty,
+                IdDevice = m_deviceInfoDB.DeviceId,
+                IdWorkType = typeWork.Id,
+                SpecialistSid = specialistSid
+            };
 
-		private void HandleClickGetInfo(object sender, EventArgs e)
-		{
-			DispatchPrinterInfoDB deviceInfoDB;
+            try
+            {
+                m_unitAPIShellSaver.PushData(dispatch);
+            }
+            catch (WebException webEx)
+            {
+                try
+                {
+                    m_unitAPIShellSaver.SaveLocalData(dispatch);
+                }
+                catch (SQLiteException dbEx)
+                {
+                    string resError = Resources.GetString(Resource.String.ErrorSaveInfo);
+                    string errorDescr = string.Format(
+                        resError + System.Environment.NewLine +
+                        "Web error: {0}" + System.Environment.NewLine + "DB error: {1}",
+                        webEx.Message, dbEx.Message);
+                    Toast.MakeText(this, errorDescr, ToastLength.Long).Show();
+                }
+            }
 
-			try
-			{
-				HttpWebRequest requestInfo = (HttpWebRequest)WebRequest.Create(_urlApi);
-				requestInfo.Accept = "Application/Json";
-				requestInfo.Method = "Post";
-				using(var responseInfo = requestInfo.GetResponse())
-				{
-					using(var streamReader = new StreamReader(responseInfo.GetResponseStream()))
-					{
-						string info = streamReader.ReadToEnd();
-						deviceInfoDB = JsonConvert.DeserializeObject<DispatchPrinterInfoDB>(info);
-						ViewFillForm (deviceInfoDB);
-					}
-				}
-			}
-			catch(Exception)
-			{
-				try
-				{
-					using (var dataBase = new SQLiteConnection (_dbPathGlobal)) {
-						deviceInfoDB = dataBase.Get<DispatchPrinterInfoDB> (x => x.SerialKey == _serialKey.Text);
-						}
-					ViewFillForm (deviceInfoDB);
-				}
-				catch(Exception) {
-					Toast.MakeText (this, Resource.String.ErrorSerialKey, ToastLength.Long).Show();
-				}
-			}
-		}
+            GoCompleteSaveEntryActivity();
+        }
 
-		private void HandleClickSaveInfo(object sender, EventArgs e)
-		{
-			Device device = new Device (_serialKey.Text,
-				                new Agreement () {
-					NameContrahens = _nameContrahens.Text,
-					NumberAgreement = _numberArgreement.Text,
-					PeriodContract = _periodContract.Text,
-					AddressApparat = _addressMachine.Text
-				},
-				                new DeviceInfo () {
-					Model = _model.Text,
-					City = _city.Text,
-					Address = _address.Text,
-					Contrahens = _contrahens.Text
-				});
-            Printer printer = new Printer(
-                device,
-                Int32.Parse(_counterBlackAndWhite.Text),
-                Int32.Parse(_counterColor.Text));
-			DispatchInfo dispatchtInfo = new DispatchInfo(
-				_name,
-				_pass,
-				printer,
-				_spinner.SelectedItem.ToString(),
-                _comment.Text);
-			DispatchPrinterInfoDB deviceInfoDB = new DispatchPrinterInfoDB (dispatchtInfo);
+        private void InitializeLayout()
+        {
+            mInformationLayout = FindViewById<LinearLayout>(Resource.Id.informationLayout);
+            mEnterDataLayout = FindViewById<LinearLayout>(Resource.Id.enterDataLayout);
+            mInformationDeviceLayout = FindViewById<LinearLayout>(Resource.Id.informationDeviceLayout);
+            mEnterDispatchLayout = FindViewById<LinearLayout>(Resource.Id.enterDispatchLayout);
+            mSpinner = FindViewById<Spinner>(Resource.Id.TypeWork);
+            mInformationLayout.Visibility = ViewStates.Gone;
+            mEnterDispatchLayout.Visibility = ViewStates.Gone;
 
-			try
-			{
-				HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_urlApi);
-				using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
-				{
-					string jsonObj = JsonConvert.SerializeObject(deviceInfoDB);
-					streamWriter.WriteLine(jsonObj);
-				}
-				request.Accept = "Application/Json";
-				request.Method = "Post";
-				using(var responseInfo = request.GetResponse()) { 
-					using(var streamReader = new StreamReader(responseInfo.GetResponseStream()))
-					{
-						string strResponse = streamReader.ReadToEnd();
-						if (strResponse == "OK")
-							Toast.MakeText (this, Resource.String.CompleteSaveInfo, ToastLength.Long);
-					}
-				}
-			}
-			catch(Exception)
-			{
-				using (var _dataBase = new SQLiteConnection (_dbPathGlobal)) {
-					_dataBase.Insert (deviceInfoDB);
-				}
-				using (var _dataBase = new SQLiteConnection (_dbPathLocal)) {
-					_dataBase.Insert (deviceInfoDB);
-				}
-				Toast.MakeText (this, Resource.String.CompleteSaveInfo, ToastLength.Long);
-			}
-		}
+            mNoServerConnectionLayout = FindViewById<LinearLayout>(Resource.Id.NoServerConnectionLayout);
+            mChangeLayout = FindViewById<LinearLayout>(Resource.Id.ChangeLayout);
+            mDownloadChangeLayout = FindViewById<LinearLayout>(Resource.Id.DownloadChangeLayout);
+            mNoServerConnectionLayout.Visibility = ViewStates.Gone;
+            mDownloadChangeLayout.Visibility = ViewStates.Gone;
+
+            FindViewById<LinearLayout>(Resource.Id.linearLayout4).Touch += Element_Touch;
+        }
+
+        public override void OnBackPressed()
+        {
+            Intent intent = new Intent(Intent.ActionMain);
+            intent.AddCategory(Intent.CategoryHome);
+            intent.SetFlags(ActivityFlags.ClearTop);
+            StartActivity(intent);
+            Finish();
+            Process.KillProcess(Process.MyPid());
+        }
+
+        private void InitializeButton()
+        {
+            Button buttonGetInfo = FindViewById<Button>(Resource.Id.GetInfoDevice);
+            buttonGetInfo.Click += HandleClickGetInfo;
+            Button buttonSaveInfo = FindViewById<Button>(Resource.Id.Save);
+            buttonSaveInfo.Click += HandleClickSaveInfo;
+            Button buttonChangeDownload = FindViewById<Button>(Resource.Id.DownloadButton);
+            buttonChangeDownload.Click += async (obj, state) =>
+            {
+                HideKeyboard();
+                try
+                {
+                    mDownloadChangeLayout.Visibility = ViewStates.Gone;
+                    await m_unitAPIShellUpdater.UpdateAsync();
+                    mDateLastExcharge.Text = m_unitAPIShellUpdater.GetDateLastUpdate().ToString("yyyy-MM-dd HH:mm:ss");
+                    Toast.MakeText(this, Resource.String.CompleteDownloadData, ToastLength.Long).Show();
+                }
+                catch (WebException)
+                {
+                    mChangeLayout.Visibility = ViewStates.Gone;
+                    mNoServerConnectionLayout.Visibility = ViewStates.Visible;
+                    Toast.MakeText(this, Resource.String.NoConnectionServer, ToastLength.Long).Show();
+                }
+            };
+            Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);
+            exitButton.Click += (obj, state) =>
+            {
+                HideKeyboard();
+                var login = "mobileUnit_Service";
+                var pass = "1qazXSW@";
+                UnitAPIShellAuthorizator authorizator = new UnitAPIShellAuthorizator(login, pass);
+                authorizator.DontRememberMe();
+                GoAuthorizationActivity();
+            };
+        }
+
+        private void InitializeSpinner()
+        {
+            string[] typesWorkName;
+            using (var dbConnection = new SQLiteConnection(mDBUnitAndroidPrinterApp))
+            {
+                typesWorkName = dbConnection.Table<TypeWorkDB>().Select<TypeWorkDB, string>(
+                    typeWork => typeWork.Name).ToArray();
+            }
+
+            var adapter = new ArrayAdapter<string>(this, Resource.Layout.RowSpinner, typesWorkName);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            mSpinner = FindViewById<Spinner>(Resource.Id.TypeWork);
+            mSpinner.Adapter = adapter;
+        }
+
+        private void InitializeEnterField()
+        {
+            mSerialKey = FindViewById<EditText>(Resource.Id.EnterDeviceSerialKey);
+            mDeviceModel = FindViewById<EditText>(Resource.Id.DeviceModel);
+            mAddress = FindViewById<EditText>(Resource.Id.Address);
+            mClientName = FindViewById<EditText>(Resource.Id.ClientName);
+            mMonoCounter = FindViewById<EditText>(Resource.Id.MonoCounter);
+            mColorCounter = FindViewById<EditText>(Resource.Id.ColorCounter);
+            mComment = FindViewById<EditText>(Resource.Id.Comment);
+            mDateLastExcharge = FindViewById<TextView>(Resource.Id.DateLastExcharge);
+            mDateLastExcharge.Text = m_unitAPIShellUpdater.GetDateLastUpdate().ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            HideKeyboard();
+            return true;
+        }
+
+        private void HideKeyboard()
+        {
+            InputMethodManager inputMethodManager = (InputMethodManager)GetSystemService(Context.InputMethodService);
+            inputMethodManager.HideSoftInputFromWindow(CurrentFocus.WindowToken, HideSoftInputFlags.None);
+        }
+
+        private void Element_Touch(object sender, View.TouchEventArgs e)
+        {
+            HideKeyboard();
+        }
 
         private void Initialize()
         {
-            _serialKey = FindViewById<EditText>(Resource.Id.EnterDeviceSerialKey);
+            m_unitAPIShellUpdater = new UnitAPIShellUpdater(mLogin, mPass);
+            m_unitAPIShellSaver = new UnitAPIShellSaver(mLogin, mPass);
 
-            _nameContrahens = FindViewById<TextView>(Resource.Id.NameContrahens);
-            _numberArgreement = FindViewById<TextView>(Resource.Id.NumberArgreement);
-            _periodContract = FindViewById<TextView>(Resource.Id.PeriodContract);
-            _addressMachine = FindViewById<TextView>(Resource.Id.AddressMachine);
+            InitializeLayout();
+            InitializeButton();
+            InitializeSpinner();
+            InitializeEnterField();
 
-            _model = FindViewById<EditText>(Resource.Id.Model);
-            _city = FindViewById<EditText>(Resource.Id.City);
-            _address = FindViewById<EditText>(Resource.Id.Address);
-            _contrahens = FindViewById<EditText>(Resource.Id.Contrahens);
-
-            _spinner = FindViewById<Spinner>(Resource.Id.TypeWork);
-            var adapter = ArrayAdapter.CreateFromResource(
-                this, Resource.Array.TypeWorkArray, Resource.Layout.RowSpinner);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            _spinner = FindViewById<Spinner>(Resource.Id.TypeWork);
-            _spinner.Adapter = adapter;
-            _counterBlackAndWhite = FindViewById<EditText>(Resource.Id.BlackAndWhiteCounter);
-            _counterColor = FindViewById<EditText>(Resource.Id.ColorCounter);
-            _comment = FindViewById<EditText>(Resource.Id.Comment);
-
-            _layoutMachine = FindViewById<LinearLayout>(Resource.Id.linearLayout5);
-            _layoutAgreement = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
-            _layoutBid = FindViewById<LinearLayout>(Resource.Id.linearLayout3);
-            _layoutMachine.Visibility = ViewStates.Gone;
-            _layoutAgreement.Visibility = ViewStates.Gone;
-            _layoutBid.Visibility = ViewStates.Gone;
-
-			var buttonGetInfo = FindViewById<Button> (Resource.Id.GetInfoDevice);
-			buttonGetInfo.Click += HandleClickGetInfo;
-			var buttonSaveInfo = FindViewById<Button> (Resource.Id.Save);
-			buttonSaveInfo.Click += HandleClickSaveInfo;
-
-			using (var dataBase = new SQLiteConnection (_dbPathGlobal)) {
-				dataBase.CreateTable<DispatchPrinterInfoDB> ();
-			}
-			using (var dataBase = new SQLiteConnection (_dbPathLocal)) {
-				dataBase.CreateTable<DispatchPrinterInfoDB> ();
-			}
-
-			_urlApi = Resources.GetString (Resource.String.URLApi);
+            Timer checkNeedUpdate = new Timer(obj =>
+            {
+                RunOnUiThread(async () =>
+                {
+                    try
+                    {
+                        if (await m_unitAPIShellUpdater.CheckNeedUpdateAsync())
+                            mDownloadChangeLayout.Visibility = ViewStates.Visible;
+                    }
+                    catch (WebException)
+                    {
+                        mChangeLayout.Visibility = ViewStates.Gone;
+                        mNoServerConnectionLayout.Visibility = ViewStates.Visible;
+                    }
+                });
+            }, null, 0, 30 * 60 * 1000);
+            Timer checkIsOnline = new Timer(obj =>
+            {
+                RunOnUiThread(() =>
+                {
+                    ConnectivityManager connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+                    NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
+                    bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
+                    if (isOnline)
+                    {
+                        mChangeLayout.Visibility = ViewStates.Visible;
+                        mNoServerConnectionLayout.Visibility = ViewStates.Gone;
+                    }
+                    else
+                    {
+                        mChangeLayout.Visibility = ViewStates.Gone;
+                        mNoServerConnectionLayout.Visibility = ViewStates.Visible;
+                    }
+                });
+            }, null, 0, 30 * 1000);
+            Timer timerSendDataServer = new Timer(async obj =>
+            {
+                try
+                {
+                    var localData = m_unitAPIShellSaver.GetLocalData();
+                    foreach (var item in localData)
+                    {
+                        await m_unitAPIShellSaver.PushDataAsync(item);
+                        m_unitAPIShellSaver.DeleteData(item);
+                    }
+                    if (localData.Length != 0)
+                        RunOnUiThread(() => Toast.MakeText(this, Resource.String.CompleteSendDataServer, ToastLength.Long).Show());
+                }
+                catch (WebException) { }
+            }, null, 0, 30 * 60 * 1000);
         }
 
-		private void test()
-		{
-			var deviceInfoDB =
-				new DispatchPrinterInfoDB (
-					new DispatchInfo (
-						_name,
-						_pass,
-						new Printer (
-							new Device (
-								"123",
-								new Agreement () {
-									NameContrahens = "NameContrahens",
-									NumberAgreement = "NumberAgreement",
-									PeriodContract = "PeriodContract",
-									AddressApparat = "AddressApparat"
-								}),
-							123,
-							123
-						),
-						"Bid"
-					));
+        private void ClearFormInformation()
+        {
+            mMonoCounter.Text = string.Empty;
+            mColorCounter.Text = string.Empty;
+            mComment.Text = string.Empty;
+            mDeviceModel.Text = string.Empty;
+            mAddress.Text = string.Empty;
+            mClientName.Text = string.Empty;
+        }
 
-			using (var _dataBase = new SQLiteConnection (_dbPathGlobal)) {
-				_dataBase.Insert (deviceInfoDB);
-			}
-		}
-
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
-			SetContentView (Resource.Layout.Main);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Main);
 
             Initialize();
 
-			_name = Intent.GetStringExtra ("Name");
-			_pass = Intent.GetStringExtra ("Pass");
+            mLogin = Intent.GetStringExtra("Name");
+            mPass = Intent.GetStringExtra("Pass");
+        }
 
-			test ();
-		
-//			var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
-//			var activeConnection = connectivityManager.ActiveNetworkInfo;
-//			if ((activeConnection != null)  && activeConnection.IsConnected)
-//			{
-//				try{
-//					using (var dataBase = new SQLiteConnection (_dbPathLocal)) {
-//						var dispatchInfoDBAll = dataBase.Table<DispatchPrinterInfoDB> ().ToArray();
-//						string jsonObj = JsonConvert.SerializeObject(dispatchInfoDBAll);
-//						HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_urlApi);
-//						using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
-//						{
-//							streamWriter.WriteLine(jsonObj);
-//						}
-//						request.Accept = "Application/Json";
-//						request.Method = "Post";
-//						using(var responseInfo = request.GetResponse()) { }
-//
-//						dataBase.DeleteAll<DispatchPrinterInfoDB>();
-//					}
-//				}
-//				catch(Exception) {
-//				}
-//
-//				using(var dataBase = new SQLiteConnection(_dbPathGlobal)) {
-//					//закачать всю базу с сервера
-//				}
-//			}
-		}
-	}
+        void GoCompleteSaveEntryActivity()
+        {
+            var intent = new Intent(this, typeof(CompleteSaveActivity));
+            intent.PutExtra("Name", mLogin);
+            intent.PutExtra("Pass", mPass);
+            StartActivity(intent);
+        }
+
+        void GoAuthorizationActivity()
+        {
+            var intent = new Intent(this, typeof(AuthorizationActivity));
+            StartActivity(intent);
+        }
+    }
 }
 
 

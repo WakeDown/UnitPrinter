@@ -1,7 +1,8 @@
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\UnitAnroidPrinterApp.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\Mono.Android.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\mscorlib.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\Newtonsoft.Json.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.Core.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.dll
-C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\obj\Debug\assemblies\System.Runtime.Serialization.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\UnitAnroidPrinterApp.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\Mono.Android.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\mscorlib.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.Core.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.Xml.dll
+C:\Users\Alexey\Documents\Visual Studio 2015\Projects\Un1t_Printer\UnitAnroidPrinterApp\obj\Debug\android\assets\System.Runtime.Serialization.dll

@@ -3,213 +3,269 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/linearLayout4"
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
         <LinearLayout
             android:orientation="vertical"
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="90"
-            android:id="@+id/linearLayout2"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_marginBottom="20dp">
-            <TextView
-                android:text="@string/TitleEnterDeviceSerialKey"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleEnterDeviceSerialKey"
-                style="@style/TitleTextNormal" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/EnterDeviceSerialKey"
-                style="@style/TextNormal" />
-            <Button
-                android:text="@string/ButtonGetInformationDevice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/GetInfoDevice"
-                style="@style/TextNormal" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:id="@+id/linearLayout1"
-            android:layout_marginBottom="20dp">
-            <TextView
-                android:text="@string/TitleNameContrahens"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleNameContrahens"
-                style="@style/TitleTextNormal" />
-            <TextView
-                android:text="@string/DefaultValueInfo"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/NameContrahens"
-                style="@style/TextNormal" />
-            <TextView
-                android:text="@string/TitleNumberAgreement"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleNumberAgreement"
-                style="@style/TitleTextNormal" />
-            <TextView
-                android:text="@string/DefaultValueInfo"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/NumberArgreement"
-                style="@style/TextNormal" />
-            <TextView
-                android:text="@string/TitlePeriodContract"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitlePeriodContract"
-                style="@style/TitleTextNormal" />
-            <TextView
-                android:text="@string/DefaultValueInfo"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/PeriodContract"
-                style="@style/TextNormal" />
-            <TextView
-                android:text="@string/TitleAddressMachine"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleAddressMachine"
-                style="@style/TitleTextNormal" />
-            <TextView
-                android:text="@string/DefaultValueInfo"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/AddressMachine"
-                style="@style/TextNormal" />
+            android:layout_weight="1">
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout5">
-                <TextView
-                    android:text="@string/TitleModel"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout6"
+                android:layout_weight="100"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/linearLayout5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/TitleModel"
-                    style="@style/TitleTextNormal" />
-                <EditText
+                    android:layout_weight="40">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/NoServerConnectionLayout"
+                        android:layout_weight="50">
+                        <TextView
+                            android:text="@string/NoConnectionServer"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/NoServerConnect"
+                            style="@style/TitleTextNormal"
+                            android:gravity="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ChangeLayout"
+                        android:layout_weight="50">
+                        <TextView
+                            android:text="@string/DateLastExchange"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/TitleDateLastExcharge"
+                            style="@style/TitleTextNormal"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/DateLastExcharge"
+                            style="@style/TextNormal" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/DownloadChangeLayout">
+                            <TextView
+                                android:text="@string/ThereСhange"
+                                android:id="@+id/textView1"
+                                style="@style/TitleTextNormal"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                            <Button
+                                android:text="@string/Download"
+                                android:id="@+id/DownloadButton"
+                                style="@style/TextNormal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:text="@string/Exit"
+                    android:id="@+id/ExitButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Model"
-                    style="@style/TextNormal" />
-                <TextView
-                    android:text="@string/TileCity"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/TitleCity"
-                    style="@style/TitleTextNormal" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/City"
-                    style="@style/TextNormal" />
-                <TextView
-                    android:text="@string/TitleAddress"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/TitleAddress"
-                    style="@style/TitleTextNormal" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Address"
-                    style="@style/TextNormal" />
-                <TextView
-                    android:text="@string/TitleContrahens"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/TitleContrahens"
-                    style="@style/TitleTextNormal" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Contrahens"
+                    android:layout_weight="80"
                     style="@style/TextNormal" />
             </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="90"
+                android:id="@+id/enterSerialKeyLayout"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:text="@string/TitleEnterDeviceSerialKey"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TitleEnterDeviceSerialKey"
+                    style="@style/TitleTextNormal"
+                    android:layout_weight="1" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/EnterDeviceSerialKey"
+                    style="@style/TextNormal"
+                    android:layout_weight="1" />
+                <Button
+                    android:text="@string/ButtonGetInformationDevice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/GetInfoDevice"
+                    style="@style/TextNormal"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:id="@+id/informationLayout"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/informationDeviceLayout">
+                    <TextView
+                        android:text="@string/TitleInformationDevice"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/TitleInformationDevice"
+                        style="@style/TitleTextNormal" />
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/InformationDevice"
+                        style="@style/TextNormal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/enterDataLayout">
+                    <TextView
+                        android:text="@string/TitleDeviceModel"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/TitleDeviceModel"
+                        style="@style/TitleTextNormal"
+                        android:layout_weight="1" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/DeviceModel"
+                        style="@style/TextNormal"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:text="@string/TitleAddress"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/TitleAddress"
+                        style="@style/TitleTextNormal"
+                        android:layout_weight="1" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Address"
+                        style="@style/TextNormal"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:text="@string/TitleClientName"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/TitleClientName"
+                        style="@style/TitleTextNormal"
+                        android:layout_weight="1" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ClientName"
+                        style="@style/TextNormal"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/enterDispatchLayout"
+                android:layout_weight="70">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TypeWork"
+                    style="@style/TextNormal"
+                    android:layout_weight="10" />
+                <TextView
+                    android:text="@string/CounterMono"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TitleMonoCounter"
+                    style="@style/TitleTextNormal"
+                    android:layout_weight="10" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/MonoCounter"
+                    style="@style/TextNormal"
+                    android:layout_weight="10"
+                    android:inputType="number" />
+                <TextView
+                    android:text="@string/CounterColor"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TitleColorCounter"
+                    style="@style/TitleTextNormal"
+                    android:layout_weight="10" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ColorCounter"
+                    style="@style/TextNormal"
+                    android:layout_weight="10"
+                    android:inputType="number" />
+                <TextView
+                    android:text="@string/Comment"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TitleComment"
+                    style="@style/TitleTextNormal"
+                    android:layout_weight="10" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Comment"
+                    style="@style/TextNormal"
+                    android:layout_weight="10" />
+                <Button
+                    android:text="@string/ButtonSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Save"
+                    style="@style/TextNormal"
+                    android:layout_weight="9" />
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout3"
-            android:layout_weight="70">
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TypeWork"
-                style="@style/TextNormal" />
-            <TextView
-                android:text="@string/CounterBlackWhite"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleBlackAndWhiteCounter"
-                style="@style/TitleTextNormal" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/BlackAndWhiteCounter"
-                style="@style/TextNormal" />
-            <TextView
-                android:text="@string/CounterColor"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleColorCounter"
-                style="@style/TitleTextNormal" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ColorCounter"
-                style="@style/TextNormal" />
-            <TextView
-                android:text="@string/Comment"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TitleComment"
-                style="@style/TitleTextNormal" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Comment"
-                style="@style/TextNormal" />
-            <Button
-                android:text="@string/ButtonSave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Save"
-                style="@style/TextNormal" />
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

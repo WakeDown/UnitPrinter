@@ -1,11 +1,18 @@
 ﻿<Properties StartupItem="UnitAnroidPrinterApp\UnitAnroidPrinterApp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.192.168.0.3:5555" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UnitAnroidPrinterApp\StartActivity.cs">
+    <Files>
+      <File FileName="UnitAnroidPrinterApp\StartActivity.cs" Line="27" Column="40" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Алексей\Desktop\UnitAndroidPrinterApp\UnitAnroidPrinterApp\AuthorizationActivity.cs" line="73" column="1" />
+      <Breakpoint file="C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\StartActivity.cs" line="49" column="51" />
+      <Breakpoint file="C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\StartActivity.cs" line="52" column="24" />
+      <Breakpoint file="C:\Users\Alexey\Source\Repos\Un1t_Printer\UnitAnroidPrinterApp\StartActivity.cs" line="53" column="28" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.UnitAnroidPrinterApp AndroidDesignerPreferredDevice="Nexus 10" />
+  <MonoDevelop.Ide.ItemProperties.UnitAnroidPrinterApp AndroidDesignerPreferredDevice="Nexus 5" />
 </Properties>
